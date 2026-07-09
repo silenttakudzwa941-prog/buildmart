@@ -14,7 +14,7 @@ export default function Home() {
       {/* NAV */}
       <nav className="sticky top-0 bg-white/80 backdrop-blur border-b z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">BUILD<span className="text-orange-500">MART</span></h1>
+          <h1 className="text-2xl font-bold">KAZ<span className="text-orange-500">MART</span></h1>
           <a href={`https://wa.me/${whatsappNumber}`} className="bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600">
             WhatsApp Us
           </a>
@@ -89,14 +89,14 @@ export default function Home() {
           <h3 className="text-3xl font-bold mb-6">Visit Us Today</h3>
           <div className="flex flex-col md:flex-row justify-center gap-6 text-lg">
             <div className="flex items-center gap-2 justify-center"><Phone /> +263 77 549 6377</div>
-            <div className="flex items-center gap-2 justify-center"><MapPin /> Harare, Zimbabwe</div>
+            <div className="flex items-center gap-2 justify-center"><MapPin /> Marondera, Zimbabwe</div>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
       <footer className="bg-gray-900 text-white text-center py-6">
-        © 2026 Buildmart Hardware. All rights reserved.
+        © 2026 Kazmart Hardware. All rights reserved.
       </footer>
     </main>
   );
