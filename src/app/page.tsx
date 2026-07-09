@@ -67,9 +67,9 @@ export default function Home() {
       <section id="products" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-3xl font-bold text-center mb-12">What We Stock</h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {products.map((p) => (
-              <div key={p.name} className="border rounded-2xl p-6 hover:shadow-xl transition">
+              <div key={p.name} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition mx-4 md:mx-0">
                 <div className="text-orange-500 mb-4 w-12 h-12">{p.icon}</div>
                 <h4 className="text-xl font-bold mb-2">{p.name}</h4>
                 <p className="text-gray-600 mb-4">{p.desc}</p>
