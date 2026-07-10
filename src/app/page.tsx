@@ -86,7 +86,52 @@ const benefits = [
     </a>
   </div>
 </section>
+{/* SHOP BY CATEGORY */}
+<section className="py-16 px-4">
+  <h2 className="text-center text-3xl font-bold mb-10">Shop by Category</h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    
+   {/* CATEGORY 1 */}
+<div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer h-64">
+  <Image 
+    src="/power-tools.jpg"
+    alt="Power Tools" 
+    fill
+    className="object-cover group-hover:scale-110 transition duration-300"
+  />
+  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+    <h3 className="text-white text-2xl font-bold">Power Tools</h3>
+  </div>
+</div>
 
+{/* CATEGORY 2 */}
+<div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer h-64">
+  <Image
+    src="/paint1.jpg"
+    alt="Paint & Decor" 
+    fill
+    className="object-cover group-hover:scale-110 transition duration-300"
+  />
+  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+    <h3 className="text-white text-2xl font-bold">Paint & Decor</h3>
+  </div>
+</div>
+
+{/* CATEGORY 3 */}
+<div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer h-64">
+  <Image
+    src="/building-materials.jpg"
+    alt="Building Materials" 
+    fill
+    className="object-cover group-hover:scale-110 transition duration-300"
+  />
+  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+    <h3 className="text-white text-2xl font-bold">Building Materials</h3>
+  </div>
+</div>
+
+  </div>
+</section>
       {/* PRODUCTS */}
       <section id="products" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
