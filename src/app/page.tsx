@@ -32,18 +32,14 @@ const benefits = [
   return (
     <main className="min-h-screen bg-white text-gray-900">
       {/* NAV */}
-      <nav className="sticky top-0 bg-white/80 backdrop-blur border-b z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">KAZ<span className="text-orange-500">MART</span></h1>
-          <a 
-  href="https://wa.me/263775496377?text=Hi%20KAZMART,%20I%20need%20a%20quote"
-  target="_blank"
-  className="bg-orange-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-orange-600"
->
-  WhatsApp Us
-</a>
-        </div>
-      </nav>
+     <nav className="sticky top-0 z-50 bg-white shadow-md px-6 py-3 flex justify-between items-center">
+  <div className="flex items-center gap-2">
+    <img src="/logo.jpeg" alt="KAZMAT HARDWARE" className="h-24 md:h-26" />
+  </div>
+  <button className="bg-orange-500 text-white px-4 py-2 rounded-lg font-bold">
+    WhatsApp Us
+  </button>
+</nav>
 <div className="absolute inset-0">
   <Image 
     src="/hero-hardware.jpg" 
@@ -62,10 +58,11 @@ const benefits = [
     quality={100}
     sizes="100vw"
     className="object-cover"
+    
   />
   
   {/* Dark overlay so text is readable */}
-  <div className="absolute inset-0 bg-black/50"></div>
+  <div className="absolute inset-0 bg-blue/50"></div>
   
   {/* Text */}
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,48 +84,49 @@ const benefits = [
   </div>
 </section>
 {/* SHOP BY CATEGORY */}
-<section className="py-16 px-4">
-  <h2 className="text-center text-3xl font-bold mb-10">Shop by Category</h2>
+{/* SHOP BY CATEGORY */}
+<section className="py-16 px-4 bg-gray-50 pt-20 relative">
+  <h2 className="text-center text-4xl font-bold mb-10 text-gray-800">Shop by Category</h2>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
     
-   {/* CATEGORY 1 */}
-<div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer h-64">
-  <Image 
-    src="/power-tools.jpg"
-    alt="Power Tools" 
-    fill
-    className="object-cover group-hover:scale-110 transition duration-300"
-  />
-  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-    <h3 className="text-white text-2xl font-bold">Power Tools</h3>
-  </div>
-</div>
+    {/* CATEGORY 1 */}
+    <div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer h-64">
+      <Image
+        src="/power-tools.jpg"
+        alt="Power Tools"
+        fill
+        className="object-cover group-hover:scale-110 transition duration-300"
+      />
+      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <h3 className="text-white text-2xl font-bold">Power Tools</h3>
+      </div>
+    </div>
 
-{/* CATEGORY 2 */}
-<div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer h-64">
-  <Image
-    src="/paint1.jpg"
-    alt="Paint & Decor" 
-    fill
-    className="object-cover group-hover:scale-110 transition duration-300"
-  />
-  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-    <h3 className="text-white text-2xl font-bold">Paint & Decor</h3>
-  </div>
-</div>
+    {/* CATEGORY 2 */}
+    <div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer h-64">
+      <Image
+        src="/paint1.jpg"
+        alt="Paint & Decor"
+        fill
+        className="object-cover group-hover:scale-110 transition duration-300"
+      />
+      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <h3 className="text-white text-2xl font-bold">Paint & Decor</h3>
+      </div>
+    </div>
 
-{/* CATEGORY 3 */}
-<div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer h-64">
-  <Image
-    src="/building-materials.jpg"
-    alt="Building Materials" 
-    fill
-    className="object-cover group-hover:scale-110 transition duration-300"
-  />
-  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-    <h3 className="text-white text-2xl font-bold">Building Materials</h3>
-  </div>
-</div>
+    {/* CATEGORY 3 */}
+    <div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer h-64">
+      <Image
+        src="/building-materials.jpg"
+        alt="Building Materials"
+        fill
+        className="object-cover group-hover:scale-110 transition duration-300"
+      />
+      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <h3 className="text-white text-2xl font-bold">Building Materials</h3>
+      </div>
+    </div>
 
   </div>
 </section>
@@ -239,7 +237,7 @@ const benefits = [
     
     {/* Column 1: About + Socials */}
     <div>
-      <h3 className="text-orange-500 text-2xl font-bold mb-4">BUILDMART</h3>
+      <h3 className="text-orange-500 text-2xl font-bold mb-4">KAZMAT</h3>
       <p className="mb-4 text-sm">Your trusted partner for Web Design, Branding & Quality Hardware.</p>
       <div className="flex gap-4">
         <a href="https://facebook.com" target="_blank" className="hover:text-orange-500"><FaFacebook size={24} /></a>
@@ -282,7 +280,7 @@ const benefits = [
 
   {/* Copyright */}
   <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-500">
-    © 2026 BuildMart. All rights reserved. | Built by Silent Programs
+    © 2026 KAZMAT. All rights reserved. | Built by Silent Programs
   </div>
 </footer>
     </main>
