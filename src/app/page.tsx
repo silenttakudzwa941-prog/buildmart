@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaMapPin, FaPhone, FaTwitter } from 'react-icons/fa'
 import { Drill, Hammer, PaintBucket, Box, Truck, ShieldCheck, Users, Banknote, MessageCircle, MapPin } from 'lucide-react'
+import Hero from "../../components/Hero";
+import Navbar from "../../components/Navbar";
 export default function Home() {
   const whatsappNumber = "2637XXXXXXXX"; // replace with Buidmart WhatsApp
  const products = [
@@ -31,62 +33,13 @@ const benefits = [
 ]
   return (
     <main className="min-h-screen bg-white text-gray-900">
-      {/* NAV */}
-     <nav className="sticky top-0 z-50 bg-white shadow-md px-6 py-3 flex justify-between items-center">
-  <div className="flex items-center gap-2">
-    <img src="/logo.jpeg" alt="KAZMAT HARDWARE" className="h-24 md:h-26" />
-  </div>
-  <button className="bg-orange-500 text-white px-4 py-2 rounded-lg font-bold">
-    WhatsApp Us
-  </button>
-</nav>
-<div className="absolute inset-0">
-  <Image 
-    src="/hero-hardware.jpg" 
-    alt="Buidmart Hardware" 
-    fill 
-    className="object-cover brightness-50" 
-  />
-</div>
-    {/* Hero Section */}
-<section className="relative h-[70vh] flex items-center">
-  <Image
-    src="/hero-hardware.jpg"
-    alt="Buidmart Hardware"
-    fill
-    priority
-    quality={100}
-    sizes="100vw"
-    className="object-cover"
-    
-  />
-  
-  {/* Dark overlay so text is readable */}
-  <div className="absolute inset-0 bg-blue/50"></div>
-  
-  {/* Text */}
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-      Quality Hardware.
-      <br />
-      Delivered Fast.
-    </h1>
-    <p className="text-xl text-gray-200 mb-8 max-w-2xl">
-      Your one-stop shop for tools, paint, and building materials in Marondera.
-    </p>
-    <a
-      href={`https://wa.me/${whatsappNumber}`}
-      target="_blank"
-      className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition"
-    >
-      Order on WhatsApp
-    </a>
-  </div>
-</section>
+     
+  <Navbar />
+      <Hero />
 {/* SHOP BY CATEGORY */}
 {/* SHOP BY CATEGORY */}
 <section className="py-16 px-4 bg-gray-50 pt-20 relative">
-  <h2 className="text-center text-4xl font-bold mb-10 text-gray-800">Shop by Category</h2>
+  <h2 className="text-center text-4xl font-bold mb-10 text-gray-800" id="categories">Shop by Category</h2>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
     
     {/* CATEGORY 1 */}
@@ -165,14 +118,14 @@ const benefits = [
 </div> 
 </div>
 </section>
-{/* BESTSELLERS */}
+{/* feautured products */}
 <section className="py-16 px-4 bg-gray-50">
-  <h2 className="text-center text-3xl font-bold mb-10">Bestselling Products</h2>
+  <h2 className="text-center text-3xl font-bold mb-10">Featured Products</h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
     
     {/* PRODUCT 1 */}
     <div className="bg-white rounded-xl shadow overflow-hidden">
-      <img src="/drill.jpg" alt="Bosch Drill" className="w-full h-48 object-cover"/>
+      <img src="/products/drill.jpg" alt="Bosch Drill" className="w-full h-48 object-cover"/>
       <div className="p-4 text-center">
         <h3 className="font-bold text-lg">Bosch Drill 650W</h3>
         <p className="text-gray-600 text-sm">Perfect for concrete & wood</p>
@@ -183,7 +136,7 @@ const benefits = [
 
     {/* PRODUCT 2 */}
     <div className="bg-white rounded-xl shadow overflow-hidden">
-      <img src="/paint.jpg" alt="Dulux Paint" className="w-full h-48 object-cover"/>
+      <img src="/products/paint.jpg" alt="Dulux Paint" className="w-full h-48 object-cover"/>
       <div className="p-4 text-center">
         <h3 className="font-bold text-lg">Dulux Paint 5L</h3>
         <p className="text-gray-600 text-sm">White Interior/Exterior</p>
@@ -194,7 +147,7 @@ const benefits = [
 
     {/* PRODUCT 3 */}
     <div className="bg-white rounded-xl shadow overflow-hidden">
-      <img src="/cement.jpg" alt="Cement" className="w-full h-48 object-cover"/>
+      <img src="/products/cement.jpg" alt="Cement" className="w-full h-48 object-cover"/>
       <div className="p-4 text-center">
         <h3 className="font-bold text-lg">Cement 50kg</h3>
         <p className="text-gray-600 text-sm">PPC / Lafarge</p>
