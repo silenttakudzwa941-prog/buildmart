@@ -11,6 +11,7 @@ type Product = {
   badge: string;
 };
 
+ 
 export default function FeaturedProducts() {
   const [products, setProducts] = useState<Product[]>([]);
 

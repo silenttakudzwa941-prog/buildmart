@@ -17,12 +17,12 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-30">
           
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.jpeg" alt="Kazmat Hardware" width={180} height={60} />
-            <span className="text-xl font-bold text-orange-600"></span>
+            <Image src="/logo.jpeg" alt="Kazmat Hardware" width={190} height={50} />
+            <span className="text-xl font-bold text-orange-600">Good tools for good works!!</span>
           </Link>
 
           {/* Desktop Links */}
