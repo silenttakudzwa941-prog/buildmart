@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Bosch Drill 650W",
+    "category": "Power Tools",
     "price": "45.00",
     "image": "/products/drill.jpg",
     "badge": "Top Seller"
@@ -9,6 +10,7 @@
   {
     "id": 2, 
     "name": "Dulux Paint 5L",
+    "category": "Paint",
     "price": "35.00",
     "image": "/products/paint.jpg",
     "badge": "New"
@@ -16,8 +18,10 @@
   {
     "id": 3,
     "name": "Cement PPC 50kg",
+    "category": "Cement",
     "price": "8.00",
     "image": "/products/cement.jpg",
     "badge": "Best Value"
   }
 ]
+  

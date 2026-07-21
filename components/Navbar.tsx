@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-
+import { Menu, X } from "lucide-react"; // icons
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,13 +16,13 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-30">
+      <div className="max-w-7xl mx-auto px-4 py ={2}">
+        <div className="flex justify-between items-center h-25">
           
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.jpeg" alt="Kazmat Hardware" width={190} height={50} />
-            <span className="text-xl font-bold text-orange-600">Good tools for good works!!</span>
+          <Link href="/" className="flex flex-col items-start gap-0">
+            <Image src="/logo01.png" alt="Kazmat Hardware" width={120} height={80} />
+            <span className="text-xs font-semibold text-orange-600 mt-1">Good tools for good work!!</span>
           </Link>
 
           {/* Desktop Links */}
@@ -50,7 +50,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2"
           >
-            {isOpen ? "✕" : "☰"}
+            {isOpen ? <X /> : <Menu />}
           </button>
         </div>
 

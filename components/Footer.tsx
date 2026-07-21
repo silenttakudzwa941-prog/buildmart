@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Phone, MapPin, Mail, Clock } from "lucide-react";
 import { FaFacebook, FaInstagram, FaMapPin, FaPhone, FaTwitter } from 'react-icons/fa'
-
+import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
@@ -10,9 +10,7 @@ export default function Footer() {
           
           {/* Column 1: Brand */}
           <div>
-            <h3 className="text-2xl font-bold mb-3">
-              <span className="text-orange-500">KAZ</span>MAT
-            </h3>
+              <Image src="/logo01.png" alt="Kazmat Hardware" width={100} height={50} />
             <p className="text-gray-400 text-sm mb-4">
               Your trusted hardware partner. Quality tools for good work!
             </p>
