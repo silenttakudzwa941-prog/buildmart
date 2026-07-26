@@ -26,7 +26,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
             href="#categories"
-            className="bg-orange-500 hover:bg-brand text-white px-8 py-3 rounded-lg font-bold text-lg transition"
+            className="bg-brand hover:bg-brand text-white px-8 py-3 rounded-lg font-bold text-lg transition"
           >
             Shop Now
           </Link>

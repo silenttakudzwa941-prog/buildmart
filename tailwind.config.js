@@ -2,13 +2,11 @@
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        brand: '#ffa500', // KAZMAT MAT orange from logo
+        brand: '#FF8C00', // MAT orange
       },
     },
   },
