@@ -18,10 +18,10 @@ export default function Header() {
         </Link>
 
         <div className="flex items-center gap-6">
-          <a href="tel:+26377XXXXXXX" className="hidden md:flex items-center gap-2 text-gray-700 hover:text-orange-600">
+          <a href="tel:+26377XXXXXXX" className="hidden md:flex items-center gap-2 text-gray-700 hover:text-brand">
             <Phone size={20} /> +263 77X XXX
           </a>
-          <Link href="#products" className="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-lg font-semibold">
+          <Link href="#products" className="bg-brand hover:bg-brand text-white px-5 py-2 rounded-lg font-semibold">
             Shop Now
           </Link>
         </div>

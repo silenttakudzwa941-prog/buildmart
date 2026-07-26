@@ -58,7 +58,7 @@ export default function Footer() {
               <li className="flex items-center gap-2"><Clock className="w-4 h-4"/> Mon - Sat: 8AM - 5PM</li>
             </ul>
             
-            <button className="mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-semibold transition">
+            <button className="mt-4 w-full bg-orange-500 hover:bg-brand text-white py-2 px-4 rounded-lg font-semibold transition">
               Get Quote on WhatsApp
             </button>
           </div>

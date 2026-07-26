@@ -38,7 +38,7 @@ export default function ProductDetail() {
     
     <div className="max-w-6xl mx-auto px-4 py-16">
     <Header/>
-      <button onClick={() => router.back()} className="flex items-center gap-2 mb-8 text-orange-600 hover:underline">
+      <button onClick={() => router.back()} className="flex items-center gap-2 mb-8 text-brand hover:underline">
         <ArrowLeft size={20} /> Back to Products
       </button>
 
@@ -46,9 +46,9 @@ export default function ProductDetail() {
         <Image src={product.image} alt={product.name} width={600} height={600} className="rounded-lg w-full object-cover" />
         
         <div>
-          <span className="text-sm bg-orange-100 text-orange-600 px-3 py-1 rounded-full">{product.category}</span>
+          <span className="text-sm bg-orange-100 text-brand px-3 py-1 rounded-full">{product.category}</span>
           <h1 className="text-4xl font-bold mt-4">{product.name}</h1>
-          <p className="text-3xl font-bold text-orange-600 my-4">{product.price}</p>
+          <p className="text-3xl font-bold text-brand my-4">{product.price}</p>
           <p className="text-gray-600 mb-6">{product.description || "No description available."}</p>
           
           <a 

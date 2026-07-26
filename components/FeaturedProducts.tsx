@@ -1,104 +1,92 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Search } from "lucide-react";
 import Link from "next/link";
+import productsData from "./data/products.json"; // FIXED: use ./ not ../
+
 type Product = {
-  id: number;
+  id: string;
   name: string;
+  description: string;
   category: string;
-  price: string;
+  price: number;
   image: string;
-  badge: string;
+  stock: boolean;
 };
 
+const products: Product[] = productsData as Product[]; // add type assertion
+
 export default function FeaturedProducts() {
-  const [products, setProducts] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // Load products from public folder
-  useEffect(() => {
-    fetch("/featuredProducts.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  const categories = ["All", "Tools", "Electricals", "Building Materials", "Agriculture", "General Hardware"];
 
-  // Filter products
- const filteredProducts = products.filter((product) => {
-  const matchesSearch =
-    (product.name?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
-    (product.category?.toLowerCase() || "").includes(searchTerm.toLowerCase());
-  
-  const matchesCategory = 
-    selectedCategory === "All" || product.category === selectedCategory;
+  const filteredProducts = products.filter((product) => { // use products not productsData
+    const matchesCategory =
+      selectedCategory === "All" || product.category === selectedCategory;
+    const matchesSearch =
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
-  return matchesSearch && matchesCategory;
-});
   return (
-    <section id="products" className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-12 bg-gray-50">
+      <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Featured Products</h2>
 
-        {/* SEARCH BAR */}
-        <div className="max-w-md mx-auto mb-10 relative">
-          <Search className="absolute left-3 top-3 text-gray-400" size={20} />
+        {/* Search Bar with Icon */}
+        <div className="relative max-w-md mx-auto mb-6">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
             type="text"
-            placeholder="Search tools, cement, paint..."
+            placeholder="Search products..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          {searchTerm && (
-  <button 
-    onClick={() => setSearchTerm("")}
-    className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
-  >
-    ✕
-  </button>
-)}
         </div>
-        {/* CATEGORY FILTER */}
-<div className="flex flex-wrap justify-center gap-3 mb-8">
-  {["All", "Tools", "Building Materials", "Paint", "Plumbing"].map((category) => (
-    <button
-      key={category}
-      onClick={() => setSelectedCategory(category)}
-      className={`px-5 py-2 rounded-full font-semibold transition ${
-        selectedCategory === category
-          ? "bg-orange-600 text-white"
-          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-      }`}
-    >
-      {category}
-    </button>
-  ))}
-</div>
 
-       {/* PRODUCTS GRID */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-  {filteredProducts.length > 0 ? (
-    filteredProducts.map((product) => (
-      <Link href={`/product/${product.id}`} key={product.id}>
-        <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition cursor-pointer">
-          <Image 
-            src={product.image}
-            alt={product.name}
-            width={300}
-            height={200}
-            className="rounded-md mb-3 w-full h-40 object-cover"
-          />
-          <h3 className="font-semibold text-lg">{product.name}</h3>
-          <p className="text-sm text-gray-500">{product.category}</p>
-          <p className="text-orange-600 font-bold mt-2">{product.price}</p>
+        {/* Category Tabs */}
+        <div className="flex gap-2 overflow-x-auto mb-8 justify-center pb-2">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
+                selectedCategory === category
+                  ? "bg-blue-600 text-white"
+                  : "bg-white text-gray-700 border hover:bg-gray-100"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
         </div>
-      </Link>
-    ))
-  ) : (
-    <p className="col-span-full text-center text-gray-500">No products found</p>
-  )}
+
+        {/* Products Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredProducts.map((product) => (
+            <Link key={product.id} href={`/product/${product.id}`}>
+             <div className="bg-white border rounded-lg p-4 hover:shadow-lg transition group">
+  <div className="relative w-full h-40 mb-3 overflow-hidden rounded bg-gray-100">
+    <Image
+      src={product.image}
+      alt={product.name}
+      fill
+      className="object-cover group-hover:scale-105 transition-transform"
+      unoptimized // add this temporarily if images still dont load
+    />
+  </div>
+  <h3 className="font-semibold text-gray-800 line-clamp-1">{product.name}</h3>
+  <p className="text-sm text-gray-500 line-clamp-2 h-10">{product.description}</p>
+  <p className="font-bold text-lg mt-2 text-blue-600">${product.price.toFixed(2)}</p>
 </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

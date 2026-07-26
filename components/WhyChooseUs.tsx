@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
           {reasons.map((reason, index) => (
             <div key={index} className="text-center">
               <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <reason.icon className="w-8 h-8 text-orange-600" />
+                <reason.icon className="w-8 h-8 text-brand" />
               </div>
               <h3 className="font-bold text-lg mb-2">{reason.title}</h3>
               <p className="text-gray-600 text-sm">{reason.desc}</p>

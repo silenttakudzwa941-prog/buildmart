@@ -63,7 +63,7 @@ export default function Categories() {
                   className="w-full h-32 object-cover group-hover:scale-110 transition duration-300"
                 />
               </div>
-              <h3 className="font-semibold text-sm md:text-base group-hover:text-orange-600 transition">
+              <h3 className="font-semibold text-sm md:text-base group-hover:text-brand transition">
                 {category.name}
               </h3>
               <p className="text-xs text-gray-500">{category.count}</p>

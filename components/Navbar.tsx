@@ -16,20 +16,20 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="flex justify-between items-center h-20 px-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <img src="/logo01.png" alt="KAZMAT Hardware" className="h-10" />
-          <span className="font-bold text-orange-600">Good tools for good work!!</span>
-        </Link>
+      {/* Logo */}
+<Link href="/" className="flex flex-col items-center">
+  <img src="/logo01.png" alt="KAZMAT Hardware" className="h-10 mb-1" />
+  <span className="font-bold text-brand text-sm text-center">Good tools for good work!!</span>
+</Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="text-gray-700 hover:text-orange-600 font-medium">
+            <Link key={link.name} href={link.href} className="text-gray-700 hover:text-brand font-medium">
               {link.name}
             </Link>
           ))}
-          <Link href="https://wa.me/263XXXXXXXXX" className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md">
+          <Link href="https://wa.me/263XXXXXXXXX" className="bg-brand hover:bg-brand font-semibold text-white px-4 py-2 rounded-md">
             Get Quote
           </Link>
         </div>
@@ -52,7 +52,7 @@ export default function Navbar() {
                 key={link.name} 
                 href={link.href} 
                 onClick={() => setIsOpen(false)} // close menu when you click a link
-                className="text-gray-700 hover:text-orange-600 font-medium py-2"
+                className="text-gray-700 hover:text-brand font-medium py-2"
               >
                 {link.name}
               </Link>
