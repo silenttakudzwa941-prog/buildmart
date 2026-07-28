@@ -10,13 +10,13 @@ const categories = [
   },
   {
     id: 2,
-    name: "Power Tools",
+    name: " Power Tools",
     image: "/products/power.jpg", 
     count: "80+ Products"
   },
   {
     id: 3,
-    name: "Paint & Supplies",
+    name: "Agriculture & Paints",
     image: "/products/paint.jpg",
     count: "60+ Products"
   },
@@ -34,7 +34,7 @@ const categories = [
   },
   {
     id: 6,
-    name: "Hardware & Fasteners",
+    name: "General Hardware & Fasteners",
     image: "/products/fastener.jpg",
     count: "200+ Products"
   },

@@ -29,7 +29,7 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link href="https://wa.me/263XXXXXXXXX" className="bg-brand hover:bg-brand font-semibold text-white px-4 py-2 rounded-md">
+          <Link href="https://wa.me/263786507755" className="bg-brand hover:bg-brand font-semibold text-white px-4 py-2 rounded-md">
             Get Quote
           </Link>
         </div>

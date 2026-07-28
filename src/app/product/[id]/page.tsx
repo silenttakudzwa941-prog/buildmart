@@ -1,65 +1,72 @@
-"use client";
-import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft, MessageCircle } from "lucide-react";
-import Header from "./components/Header";
+'use client';
 
-type Product = {
-  id: number;
-  name: string;
-  category: string;
-  price: string;
-  image: string;
-  badge: string;
-  description: string; // add this to your json
-};
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
+import { products } from '../../../../components/data/products';
+import Header from '../../../../components/Header'; // add header
+import Footer from '../../../../components/Footer'; // add footer
 
-export default function ProductDetail() {
-  const params = useParams();
-  const router = useRouter();
-  const [product, setProduct] = useState<Product | null>(null);
+type Props = {
+  params:{ id: string }
+}
+export default function DetailPage({ params }: Props) {
+  const product = products.find((p) => p.id === params.id);
 
-  useEffect(() => {
-    fetch("/featuredProducts.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const found = data.find((p: Product) => p.id === Number(params.id));
-        setProduct(found);
-      });
-  }, [params.id]);
-
-  if (!product) return <div className="text-center py-20">Loading...</div>;
-
-  const whatsappLink = `https://wa.me/26377XXXXXXX?text=Hi Kazmat, I want to order: ${product.name}`;
+  if (!product) {
+    return (
+      <>
+        <Header />
+        <div className="container mx-auto px-4 py-20 text-center">
+          <h1 className="text-2xl font-bold">Product not found</h1>
+          <Link href="/" className="text-brand underline mt-4 inline-block">← Go Back Home</Link>
+        </div>
+        <Footer />
+      </>
+    )
+  };
 
   return (
-    
-    <div className="max-w-6xl mx-auto px-4 py-16">
-    <Header/>
-      <button onClick={() => router.back()} className="flex items-center gap-2 mb-8 text-brand hover:underline">
-        <ArrowLeft size={20} /> Back to Products
-      </button>
-
-      <div className="grid md:grid-cols-2 gap-10">
-        <Image src={product.image} alt={product.name} width={600} height={600} className="rounded-lg w-full object-cover" />
+    <>
+      <Header />
+      <div className="container mx-auto px-4 py-8">
         
-        <div>
-          <span className="text-sm bg-orange-100 text-brand px-3 py-1 rounded-full">{product.category}</span>
-          <h1 className="text-4xl font-bold mt-4">{product.name}</h1>
-          <p className="text-3xl font-bold text-brand my-4">{product.price}</p>
-          <p className="text-gray-600 mb-6">{product.description || "No description available."}</p>
+        {/* Back Button */}
+        <Link 
+          href="/" 
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-brand mb-6 font-medium"
+        >
+          ← Back to Shop
+        </Link>
+
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           
-          <a 
-            href={whatsappLink}
-            target="_blank"
-            className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-lg transition"
-          >
-            <MessageCircle size={24} /> Order on WhatsApp
-          </a>
+          {/* Image Column */}
+          <div className="w-full">
+            <img 
+              src={product.image} 
+              alt={product.name} 
+              className="w-full h-[450px] object-contain rounded-lg border bg-gray-50"
+            />
+          </div>
+
+          {/* Details Column */}
+          <div>
+            <h1 className="text-3xl font-bold text-gray-800">{product.name}</h1>
+            <p className="text-4xl font-bold text-brand my-4">${product.price}</p>
+            <p className="text-gray-600 leading-relaxed mb-8">{product.description}</p>
+            
+            <Link 
+              href={`https://wa.me/263786507755?text=Hi KAZMAT, I want to order: ${product.name}`}
+              target="_blank"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-lg inline-block transition"
+            >
+              Order on WhatsApp
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  );
+      <Footer />
+    </>
+  )
 }

@@ -2,7 +2,7 @@
 import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "26377XXXXXXX"; // put your real number here
+  const phoneNumber = "263786507755"; // put your real number here
   const message = "Hello Kazmat Hardware, I need a quote for...";
 
   return (

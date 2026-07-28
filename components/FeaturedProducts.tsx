@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Search } from "lucide-react";
 import Link from "next/link";
-import productsData from "./data/products.json"; // FIXED: use ./ not ../
+import {products} from "./data/products"; // FIXED: use ./ not ../
 
 type Product = {
   id: string;
@@ -15,7 +15,7 @@ type Product = {
   stock: boolean;
 };
 
-const products: Product[] = productsData as Product[]; // add type assertion
+
 
 export default function FeaturedProducts() {
   const [searchTerm, setSearchTerm] = useState("");

@@ -29,6 +29,9 @@ export default function Footer() {
               <li><Link href="#categories" className="hover:text-orange-500 transition">Shop</Link></li>
               <li><Link href="#" className="hover:text-orange-500 transition">About</Link></li>
               <li><Link href="#" className="hover:text-orange-500 transition">Contact</Link></li>
+               <li><Link href="/email-us" className="hover:text-orange-500 transition">Email Us</Link></li>
+    <li><Link href="/privacy-and-cookie-policy" className="hover:text-orange-500 transition">Privacy and Cookie Policy</Link></li> {/* ADD THIS */}
+    <li><Link href="/returns-and-refund-policy" className="hover:text-orange-500 transition">Returns and Refund Policy</Link></li> {/* ADD THIS */}
             </ul>
           </div>
 
@@ -37,14 +40,35 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-4">Our Branches</h4>
             <div className="space-y-3 text-gray-400 text-sm">
               <div>
-                <p className="font-semibold text-white">Marondera Branch</p>
-                <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 123 Main Street, Marondera</p>
-                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 77 123 4567</p>
+                <p className="font-semibold text-white">Marondera(Head Office)</p>
+                <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 47 Elm Street, Marondera</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 71 212 4211</p>
+              <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 78 650 7755</p>
+              <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> sales:0652324483</p>
+              <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> admin:0652324318</p>
               </div>
               <div>
-                <p className="font-semibold text-white">Harare Branch</p>
-                <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 45 Industrial Road, Harare</p>
-                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 78 987 6543</p>
+                <p className="font-semibold text-white">Macheke Branch</p>
+                <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> Stand 955, Macheke</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 78 601 7309</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Tel:0652080533</p>
+              </div>
+              <div>
+                <p className="font-semibold text-white">Murewa Branch</p>
+                <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 262c Mapfumo Complex Next To Murewa Council, Murewa</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 77 844 4778</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Tel:0652123556</p>
+              </div>
+              <div>
+                <p className="font-semibold text-white">Mtoko Branch</p>
+                <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 992 Mtoko Centre Opposite Pick n Pay, Mtoko</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 71 926 2621</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Tel:0652132645</p>
+              </div>
+              <div>
+                <p className="font-semibold text-white">Marondera Precast</p>
+                <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 133 Chicago Drive Industrial site, Marondera</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 78 650 7755</p>
               </div>
             </div>
           </div>
@@ -54,8 +78,9 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-4">Contact Us</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li className="flex items-center gap-2"><Mail className="w-4 h-4"/> info@kazmat.co.zw</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 24 2 123456</li>
-              <li className="flex items-center gap-2"><Clock className="w-4 h-4"/> Mon - Sat: 8AM - 5PM</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4"/> 065 232 4483</li>
+              <li className="flex items-center gap-2"><Clock className="w-4 h-4"/> Mon - Fri: 8AM - 5PM</li>
+               <li className="flex items-center gap-2"><Clock className="w-4 h-4"/> Sat: 8AM - 4PM</li>
             </ul>
             
             <button className="mt-4 w-full bg-orange-500 hover:bg-brand text-white py-2 px-4 rounded-lg font-semibold transition">

@@ -31,7 +31,7 @@ export default function Hero() {
             Shop Now
           </Link>
           <Link 
-            href="https://wa.me/2637XXXXXXX"
+            href="https://wa.me/263786507755?text=Hi KAZMAT, I want to inquire about your products."
             target="_blank"
             className="bg-brand hover:bg-brand text-white px-8 py-3 rounded-lg font-bold text-lg transition"
           >

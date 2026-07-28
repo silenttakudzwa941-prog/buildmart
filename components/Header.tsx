@@ -10,17 +10,20 @@ export default function Header() {
           <Image 
             src="/logo01.png"  // <- THIS IS THE PATH. / means public folder
             alt="Kazmat Hardware Logo"
-            width={50}
+            width={90}
             height={50}
             className="object-contain"
           />
-          <h1 className="text-2xl font-bold text-gray-800">Kazmat Hardware</h1>
+          <p className="text-2xl semibold text-brand">Good tools for good work!</p>
         </Link>
 
         <div className="flex items-center gap-6">
-          <a href="tel:+26377XXXXXXX" className="hidden md:flex items-center gap-2 text-gray-700 hover:text-brand">
-            <Phone size={20} /> +263 77X XXX
+          <a href="tel:+263786507755" className="hidden md:flex items-center gap-2 text-gray-700 hover:text-brand">
+            <Phone size={20} /> +263 786 50 7755
           </a>
+          <Link href="/cart" className="flex items-center gap-2 text-gray-700 hover:text-brand">
+            <ShoppingCart size={20} />
+          </Link>
           <Link href="#products" className="bg-brand hover:bg-brand text-white px-5 py-2 rounded-lg font-semibold">
             Shop Now
           </Link>

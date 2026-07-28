@@ -1,4 +1,13 @@
-[
+type Product = {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  price: number;
+  image: string;
+  stock: boolean;
+};
+export const products: Product[] = [
   {"id": "p001", "name": "0.4mm IBR Sheet 3.6m", "description": "IBR Roofing Sheet 0.4mm x 3.6m", "category": "Building Materials", "price": 25.00, "image": "https://placehold.co/400x400?text=IBR+Sheet", "stock": true},
   {"id": "p002", "name": "0.4mm x 5.8m IBR Sheet", "description": "IBR Roofing Sheet 0.4mm x 5.8m", "category": "Building Materials", "price": 40.00, "image": "https://placehold.co/400x400?text=IBR+Sheet", "stock": true},
   {"id": "p003", "name": "0.50 HP Booster Pump", "description": "0.50 HP Booster Pump With Automatic Control", "category": "Agriculture", "price": 100.00, "image": "https://placehold.co/400x400?text=Booster+Pump", "stock": true},
