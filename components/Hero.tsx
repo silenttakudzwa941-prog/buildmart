@@ -25,10 +25,10 @@ export default function Hero() {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
-            href="#categories"
+            href="/order-bricks"
             className="bg-brand hover:bg-brand text-white px-8 py-3 rounded-lg font-bold text-lg transition"
           >
-            Shop Now
+            Order Bricks
           </Link>
           <Link 
             href="https://wa.me/263786507755?text=Hi KAZMAT, I want to inquire about your products."
