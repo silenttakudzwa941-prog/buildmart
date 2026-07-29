@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect } from 'react';
-import { Product } from '../../components/data/products';
+import { products, type Product } from '../../components/data/products';
 
 type QuoteItem = Product & { quantity: number };
 
