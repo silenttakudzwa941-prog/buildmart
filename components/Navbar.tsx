@@ -46,7 +46,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button 
           onClick={() => setIsOpen(!isOpen)}  // <-- THIS MAKES IT CLICKABLE
-          className="md:hidden p-2"
+          className="md:hidden p-2 cursor-pointer text-gray-700 hover:text-brand transition z-50" type="button" aria-label="Toggle menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
