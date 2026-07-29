@@ -9,7 +9,7 @@ import WhyChooseUs from "../../components/WhyChooseUs";
 import Footer from "../../components/Footer";
 import VisitUs from "../../components/VisitUs";
 export default function Home() {
-  const whatsappNumber = "2637XXXXXXXX"; // replace with Buidmart WhatsApp
+  const whatsappNumber = "263782637892"; // replace with Buidmart WhatsApp
  const products = [
   {
     name: "Power Tools",

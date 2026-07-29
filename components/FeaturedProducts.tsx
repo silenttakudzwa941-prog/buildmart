@@ -1,34 +1,31 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
-import { Search } from "lucide-react";
-import Link from "next/link";
-import {products} from "./data/products"; // FIXED: use ./ not ../
+
+import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { products } from './data/products'; // make sure this path is correct
+import { Search } from 'lucide-react';
 
 type Product = {
   id: string;
   name: string;
   description: string;
-  category: string;
   price: number;
+  category: string;
   image: string;
   stock: boolean;
-};
-
-
+}
 
 export default function FeaturedProducts() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const categories = ["All", "Tools", "Electricals", "Building Materials", "Agriculture", "General Hardware"];
+  const categories = ["All", "Tools", "Electricals", "Building Materials", "Paint & Supplies"];
 
-  const filteredProducts = products.filter((product) => { // use products not productsData
-    const matchesCategory =
-      selectedCategory === "All" || product.category === selectedCategory;
-    const matchesSearch =
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredProducts = products.filter((product) => {
+    const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
+    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          product.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -36,29 +33,29 @@ export default function FeaturedProducts() {
     <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Featured Products</h2>
-
-        {/* Search Bar with Icon */}
-        <div className="relative max-w-md mx-auto mb-6">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+        
+        {/* Search Bar */}
+        <div className="max-w-md mx-auto mb-6 relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
           <input
             type="text"
             placeholder="Search products..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
 
         {/* Category Tabs */}
-        <div className="flex gap-2 overflow-x-auto mb-8 justify-center pb-2">
+        <div className="flex flex-wrap gap-2 justify-center mb-8">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-lg whitespace-nowrap font-medium transition ${
+              className={`px-4 py-2 rounded-full font-semibold transition ${
                 selectedCategory === category
-                  ? "bg-blue-600 text-white"
-                  : "bg-white text-gray-700 border hover:bg-gray-100"
+                  ? 'bg-orange-500 text-white'
+                  : 'bg-white text-gray-700 border hover:bg-gray-100'
               }`}
             >
               {category}
@@ -67,26 +64,39 @@ export default function FeaturedProducts() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((product) => (
-            <Link key={product.id} href={`/product/${product.id}`}>
-             <div className="bg-white border rounded-lg p-4 hover:shadow-lg transition group">
-  <div className="relative w-full h-40 mb-3 overflow-hidden rounded bg-gray-100">
-    <Image
-      src={product.image}
-      alt={product.name}
-      fill
-      className="object-cover group-hover:scale-105 transition-transform"
-      unoptimized // add this temporarily if images still dont load
-    />
-  </div>
-  <h3 className="font-semibold text-gray-800 line-clamp-1">{product.name}</h3>
-  <p className="text-sm text-gray-500 line-clamp-2 h-10">{product.description}</p>
-  <p className="font-bold text-lg mt-2 text-blue-600">${product.price.toFixed(2)}</p>
-</div>
-            </Link>
-          ))}
-        </div>
+        {filteredProducts.length === 0 ? (
+          <p className="text-center text-gray-500">No products found.</p>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredProducts.map((product) => (
+              <Link
+                key={product.id}
+                href={`/product/${product.id}`} // <-- THIS FIXES THE "Product not found"
+                className="bg-white border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition group"
+              >
+                {/* Product Image */}
+                <div className="relative w-full h-48 bg-gray-100">
+                  <Image
+                    src={product.image || "/placeholder.jpg"} // put a placeholder.jpg in public/
+                    alt={product.name}
+                    fill
+                    className="object-contain p-2 group-hover:scale-105 transition duration-300"
+                  />
+                </div>
+
+                {/* Product Info */}
+                <div className="p-4">
+                  <p className="text-xs text-gray-500 uppercase">{product.category}</p>
+                  <h3 className="font-semibold text-gray-800 line-clamp-1 mt-1">{product.name}</h3>
+                  <p className="text-orange-600 font-bold text-lg mt-2">${product.price}</p>
+                  <p className={`text-sm mt-1 font-medium ${product.stock ? 'text-green-600' : 'text-red-600'}`}>
+                    {product.stock ? 'In Stock' : 'Out of Stock'}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
