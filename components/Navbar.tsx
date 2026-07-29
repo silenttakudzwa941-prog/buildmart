@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import image from "next/image"
+import Image from "next/image"
 import { useState } from "react"
 import {Menu, X} from "lucide-react" // <-- THIS IS THE CORRECT IMPORT
 export default function Navbar() {
@@ -18,7 +18,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center h-20 px-4">
       {/* Logo */}
 <Link href="/" className="flex flex-col items-center">
-  <img src="/logo01.png" alt="KAZMAT Hardware" className="h-10 mb-1" />
+  <Image src="/logo01.png" alt="KAZMAT Hardware" className="h-10 mb-1" />
   <span className="font-bold text-brand text-sm text-center">Good tools for good work!!</span>
 </Link>
 

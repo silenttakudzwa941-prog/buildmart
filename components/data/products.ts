@@ -105,7 +105,7 @@ export const products: Product[] = [
   {"id": "p095", "name": "14mm Rope", "description": "14mm Rope per meter", "category": "Building Materials", "price": 0.80, "image": "https://placehold.co/400x400?text=Rope", "stock": true},
   {"id": "p096", "name": "15mm GLV Tee", "description": "15mm Galvanized Tee", "category": "Building Materials", "price": 1.00, "image": "https://placehold.co/400x400?text=Pipe+Fitting", "stock": true},
   {"id": "p097", "name": "150Kg Weighing Scale", "description": "150Kg Platform Scale", "category": "General Hardware", "price": 76.00, "image": "https://placehold.co/400x400?text=Scale", "stock": true},
-  {"id": "p098", "name": "152 x 38 x 4.2m Timber", "category": "Building Materials", "name": "Treated Timber 152x38x4.2m", "price": 18.00, "image": "https://placehold.co/400x400?text=Timber", "stock": true},
+  {"id": "p098", "name": "152 x 38 x 4.2m Timber", "description": "Treated Timber 152x38x4.2m", "category": "Building Materials", "price": 18.00, "image": "https://placehold.co/400x400?text=Timber", "stock": true},
   {"id": "p099", "name": "15A Double Socket Tokany", "description": "15A Double Socket", "category": "Electricals", "price": 4.50, "image": "https://placehold.co/400x400?text=Socket", "stock": true},
   {"id": "p100", "name": "15A Fuse", "description": "15A Electrical Fuse", "category": "Electricals", "price": 0.20, "image": "https://placehold.co/400x400?text=Fuse", "stock": true}
 ]
