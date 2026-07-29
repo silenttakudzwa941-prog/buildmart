@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import WhatsAppButton from "../../components/WhatsAppButton";
-
+import { QuoteProvider } from '@/context/QuoteContext';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,7 +29,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}<WhatsAppButton /></body>
+      <body className="min-h-full flex flex-col">
+        <QuoteProvider>
+          {children}
+          <WhatsAppButton />
+        </QuoteProvider>
+      </body>
     </html>
   );
  

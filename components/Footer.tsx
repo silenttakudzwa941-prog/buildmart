@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaMapPin, FaPhone, FaTwitter } from 'react-ico
 import Image from "next/image";
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer id="contact" className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           

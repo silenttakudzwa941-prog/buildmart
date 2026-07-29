@@ -2,15 +2,16 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import {Menu, X} from "lucide-react" // <-- THIS IS THE CORRECT IMPORT
+import { useQuote } from '@/context/QuoteContext';
+import {Menu, X, ShoppingCart} from "lucide-react" // <-- THIS IS THE CORRECT IMPORT
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-
+ const { getTotalItems } = useQuote(); // <-- THIS LINE
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Shop", href: "/categories" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Gallery", href: "/categories" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
   ]
 
   return (
@@ -32,6 +33,14 @@ export default function Navbar() {
           <Link href="https://wa.me/263786507755" className="bg-brand hover:bg-brand font-semibold text-white px-4 py-2 rounded-md">
             Get Quote
           </Link>
+          <Link href="/quote" className="relative">
+  <ShoppingCart size={24} />
+  {getTotalItems() > 0 && (
+    <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+      {getTotalItems()}
+    </span>
+  )}
+</Link>
         </div>
 
         {/* Mobile Menu Button */}
