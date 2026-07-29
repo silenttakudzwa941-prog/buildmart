@@ -1,11 +1,11 @@
-import Header from '../../../components/Header';
+import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 import { ArrowLeft, Link } from 'lucide-react';
 
 export default function PrivacyPolicy() {
   return (
     <>
-      <Header />
+      <Navbar />
       <div className="container mx-auto px-4 py-12 max-w-4xl prose prose-gray">
           {/* Back Button */}
         <Link 

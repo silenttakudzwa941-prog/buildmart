@@ -18,7 +18,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center h-20 px-4">
       {/* Logo */}
 <Link href="/" className="flex flex-col items-center">
-  <Image src="/logo01.png" alt="KAZMAT Hardware" className="h-10 mb-1" />
+  <Image src="/logo01.png" alt="KAZMAT Hardware" className="h-10 mb-1" width={80} height={40} />
   <span className="font-bold text-brand text-sm text-center">Good tools for good work!!</span>
 </Link>
 

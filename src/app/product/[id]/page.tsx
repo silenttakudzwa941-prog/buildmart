@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { products } from '../../../../components/data/products';
-import Header from '../../../../components/Header'; // add header
+import Navbar from '../../../../components/Navbar'; // add header
 import Footer from '../../../../components/Footer'; // add footer
 
 type Props = {
@@ -15,7 +15,7 @@ export default function DetailPage({ params }: Props) {
   if (!product) {
     return (
       <>
-        <Header />
+        <Navbar />
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-2xl font-bold">Product not found</h1>
           <Link href="/" className="text-brand underline mt-4 inline-block">← Go Back Home</Link>
@@ -27,7 +27,7 @@ export default function DetailPage({ params }: Props) {
 
   return (
     <>
-      <Header />
+      <Navbar />
       <div className="container mx-auto px-4 py-8">
         
         {/* Back Button */}
