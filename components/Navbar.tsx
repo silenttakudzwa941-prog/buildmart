@@ -16,13 +16,15 @@ export default function Navbar() {
     { name: "Contact", href: "#contact" },
   ]
 
+  const toggleMenu = () => setIsOpen(!isOpen) // separate function for iOS
+
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50 relative"> {/* <-- ADDED relative */}
+    <nav className="bg-white shadow-md sticky top-0 z-[9999]"> {/* HUGE z-index */}
       <div className="flex justify-between items-center h-20 px-4">
       
         {/* Logo */}
-        <Link href="/" className="flex flex-col items-center z-50">
-          <Image src="/logo01.png" alt="KAZMAT Hardware" className="h-10 mb-1" width={80} height={40} />
+        <Link href="/" className="flex flex-col items-center">
+          <Image src="/logo01.png" alt="KAZMAT Hardware" className="h-10 mb-1" width={80} height={40} priority />
           <span className="font-bold text-brand text-sm text-center">Good tools for good work!!</span>
         </Link>
 
@@ -46,28 +48,30 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button - IPHONE FIX HERE */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)}  
-          onTouchStart={() => setIsOpen(!isOpen)} // <-- IPHONE FIX
-          className="md:hidden p-2 cursor-pointer text-gray-700 hover:text-brand transition z-50 relative" // <-- ADDED z-50 relative
-          type="button" 
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {/* Mobile Menu Button - IPHONE HACK */}
+        <div className="md:hidden">
+          <button 
+            onClick={toggleMenu}
+            onTouchEnd={toggleMenu} // <-- KEY IPHONE FIX
+            className="p-3 cursor-pointer text-gray-700 hover:text-brand active:scale-95 touch-manipulation" // <-- KEY CLASSES
+            type="button" 
+            aria-label="Toggle menu"
+          >
+            {isOpen? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (  
-        <div className="md:hidden absolute top-full left-0 w-full bg-white border-t shadow-lg z-40"> {/* <-- ADDED absolute top-full z-40 */}
+      {isOpen && ( 
+        <div className="md:hidden w-full bg-white border-t shadow-lg">
           <div className="flex flex-col gap-2 p-4">
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href} 
                 onClick={() => setIsOpen(false)}
-                className="text-gray-700 hover:text-brand font-medium py-2"
+                className="text-gray-700 hover:text-brand font-medium py-3 text-lg"
               >
                 {link.name}
               </Link>
