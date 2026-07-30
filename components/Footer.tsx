@@ -41,7 +41,7 @@ export default function Footer() {
             <div className="space-y-3 text-gray-400 text-sm">
               <div>
                 <p className="font-semibold text-white">Marondera(Head Office)</p>
-                <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 47 Elm Street, Marondera</p>
+                <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 47 Elm Street,Bata Complex, Marondera</p>
                 <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 71 212 4211</p>
               <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 78 650 7755</p>
               <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> sales:0652324483</p>

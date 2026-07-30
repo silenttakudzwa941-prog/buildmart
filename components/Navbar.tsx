@@ -7,7 +7,7 @@ import { Menu, X, ShoppingCart } from "lucide-react"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const { getTotalItems } = useQuote(); 
+  const { getTotalItems } = useQuote();
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -16,12 +16,12 @@ export default function Navbar() {
     { name: "Contact", href: "#contact" },
   ]
 
-  const toggleMenu = () => setIsOpen(!isOpen) // separate function for iOS
+  const toggleMenu = () => setIsOpen(!isOpen)
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-[9999]"> {/* HUGE z-index */}
+    <nav className="bg-white shadow-md sticky top-0 z-[9999]">
       <div className="flex justify-between items-center h-20 px-4">
-      
+
         {/* Logo */}
         <Link href="/" className="flex flex-col items-center">
           <Image src="/logo01.png" alt="KAZMAT Hardware" className="h-10 mb-1" width={80} height={40} priority />
@@ -48,34 +48,41 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button - IPHONE HACK */}
+        {/* Mobile Menu Button - FIXED */}
         <div className="md:hidden">
-          <button 
+          <button
             onClick={toggleMenu}
-            onTouchEnd={toggleMenu} // <-- KEY IPHONE FIX
-            className="p-3 cursor-pointer text-gray-700 hover:text-brand active:scale-95 touch-manipulation" // <-- KEY CLASSES
-            type="button" 
+            className="p-3 cursor-pointer text-gray-700 hover:text-brand active:scale-95 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
+            type="button"
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             {isOpen? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && ( 
-        <div className="md:hidden w-full bg-white border-t shadow-lg">
-          <div className="flex flex-col gap-2 p-4">
+      {/* Mobile Menu - FIXED WITH ANIMATION + BIG TAP AREAS */}
+      {isOpen && (
+        <div className="md:hidden w-full bg-white border-t shadow-lg absolute left-0 top-20 z-[9998]">
+          <div className="flex flex-col p-2">
             {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                href={link.href} 
+              <Link
+                key={link.name}
+                href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-gray-700 hover:text-brand font-medium py-3 text-lg"
+                className="text-gray-700 hover:text-brand hover:bg-gray-50 font-medium py-4 px-4 text-lg rounded-md transition-colors min-h-[48px] flex items-center"
               >
                 {link.name}
               </Link>
             ))}
+            <Link
+              href="https://wa.me/263786507755"
+              onClick={() => setIsOpen(false)}
+              className="bg-brand hover:bg-brand font-semibold text-white px-4 py-4 rounded-md mt-2 text-center"
+            >
+              Get Quote on WhatsApp
+            </Link>
           </div>
         </div>
       )}
