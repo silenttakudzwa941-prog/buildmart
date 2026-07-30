@@ -44,13 +44,26 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu - CSS ONLY */}
-        <div className="md:hidden">
-          <input id="menu-toggle" type="checkbox" className="peer hidden" />
-          <label htmlFor="menu-toggle" className="p-3 cursor-pointer text-gray-700 hover:text-brand min-w-[44px] min-h-[44px] flex items-center justify-center">
-            <Menu size={28} className="peer-checked:hidden" />
-            <X size={28} className="hidden peer-checked:block" />
-          </label>
+      {/* Mobile Menu - CSS ONLY */}
+<div className="md:hidden flex items-center gap-4">
+  
+  {/* 1. CART ICON GOES HERE FIRST */}
+  <Link href="/quote" className="relative">
+    <ShoppingCart size={24} className="text-gray-700" />
+    {getTotalItems() > 0 && (
+      <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+        {getTotalItems()}
+      </span>
+    )}
+  </Link>
+
+  {/* 2. HAMBURGER GOES HERE SECOND */}
+  <input id="menu-toggle" type="checkbox" className="peer hidden" />
+  <label htmlFor="menu-toggle" className="p-3 cursor-pointer text-gray-700 hover:text-brand min-w-[44px] min-h-[44px] flex items-center justify-center">
+    <Menu size={28} className="peer-checked:hidden" />
+    <X size={28} className="hidden peer-checked:block" />
+  </label>
+
 
           {/* Menu slides down with keyframes */}
           <div className="fixed left-0 top-20 w-full bg-white border-t shadow-lg
