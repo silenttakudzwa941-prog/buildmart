@@ -96,14 +96,22 @@ export default function FeaturedProducts() {
                 <h3 className="font-bold text-lg mb-2">{product.name}</h3>
                 <p className="text-gray-600 text-sm mb-2 flex-1">{product.description}</p>
                 <p className="text-orange-500 font-bold text-xl mb-4">${product.price.toFixed(2)}</p>
-                <button
+               <button
   type="button"
   onClick={(e) => {
+    e.preventDefault(); // stop parent link
     e.stopPropagation(); // stop card click
     addToQuote(product)
   }}
   disabled={!product.stock}
-  className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold text-base touch-manipulation relative z-10 min-h-[48px]"
+  className="
+    w-full bg-orange-500 hover:bg-orange-600 
+    disabled:bg-gray-400 disabled:cursor-not-allowed 
+    text-white py-3 px-4 rounded-lg font-bold text-base
+    touch-manipulation select-none
+    relative z-[50] min-h-[48px] cursor-pointer
+  "
+  style={{ pointerEvents: 'auto' }}
 >
   {product.stock? 'Add to Quote' : 'Out of Stock'}
 </button>
