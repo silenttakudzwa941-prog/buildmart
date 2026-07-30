@@ -33,3 +33,7 @@ body {
 html {
   scroll-behavior: smooth;
 }
+button, [role="button"] {
+  touch-action: manipulation; /* stops 300ms delay */
+  -webkit-tap-highlight-color: transparent;
+}

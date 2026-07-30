@@ -1,12 +1,10 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
 import { useQuote } from '@/context/QuoteContext';
 import { Menu, X, ShoppingCart } from "lucide-react"
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
   const { getTotalItems } = useQuote();
 
   const navLinks = [
@@ -15,8 +13,6 @@ export default function Navbar() {
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
   ]
-
-  const toggleMenu = () => setIsOpen(!isOpen)
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-[9999]">
@@ -48,44 +44,46 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button - FIXED */}
+        {/* Mobile Menu - CSS ONLY */}
         <div className="md:hidden">
-          <button
-            onClick={toggleMenu}
-            className="p-3 cursor-pointer text-gray-700 hover:text-brand active:scale-95 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
-            type="button"
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-          >
-            {isOpen? <X size={28} /> : <Menu size={28} />}
-          </button>
+          <input id="menu-toggle" type="checkbox" className="peer hidden" />
+          <label htmlFor="menu-toggle" className="p-3 cursor-pointer text-gray-700 hover:text-brand min-w-[44px] min-h-[44px] flex items-center justify-center">
+            <Menu size={28} className="peer-checked:hidden" />
+            <X size={28} className="hidden peer-checked:block" />
+          </label>
+
+          {/* Menu slides down with keyframes */}
+          <div className="fixed left-0 top-20 w-full bg-white border-t shadow-lg
+                          max-h-0 overflow-hidden transition-all duration-300 ease-in-out
+                          peer-checked:max-h-[500px] z-[9998]">
+            <div className="flex flex-col p-2 animate-slideDown">
+              {navLinks.map((link) => (
+                <label key={link.name} htmlFor="menu-toggle">
+                  <Link href={link.href} className="text-gray-700 hover:text-brand hover:bg-gray-50 font-medium py-4 px-4 text-lg rounded-md min-h-[48px] flex items-center">
+                    {link.name}
+                  </Link>
+                </label>
+              ))}
+              <label htmlFor="menu-toggle">
+                <Link href="https://wa.me/263786507755" className="bg-brand hover:bg-brand font-semibold text-white px-4 py-4 rounded-md mt-2 text-center">
+                  Get Quote on WhatsApp
+                </Link>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Menu - FIXED WITH ANIMATION + BIG TAP AREAS */}
-      {isOpen && (
-        <div className="md:hidden w-full bg-white border-t shadow-lg absolute left-0 top-20 z-[9998]">
-          <div className="flex flex-col p-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-gray-700 hover:text-brand hover:bg-gray-50 font-medium py-4 px-4 text-lg rounded-md transition-colors min-h-[48px] flex items-center"
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link
-              href="https://wa.me/263786507755"
-              onClick={() => setIsOpen(false)}
-              className="bg-brand hover:bg-brand font-semibold text-white px-4 py-4 rounded-md mt-2 text-center"
-            >
-              Get Quote on WhatsApp
-            </Link>
-          </div>
-        </div>
-      )}
+      {/* Add this to globals.css */}
+      <style jsx>{`
+        @keyframes slideDown {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+       .animate-slideDown {
+          animation: slideDown 0.3s ease-out;
+        }
+      `}</style>
     </nav>
   )
 }
