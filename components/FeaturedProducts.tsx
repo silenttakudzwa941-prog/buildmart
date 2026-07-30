@@ -85,39 +85,46 @@ export default function FeaturedProducts() {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {currentProducts.map((product: Product) => (
-            <div key={product.id} className="border rounded-lg overflow-hidden shadow hover:shadow-lg transition flex flex-col">
-              <div className="relative h-48 bg-gray-200">
-                <Image src={product.image} alt={product.name} fill className="object-cover" />
-                {!product.stock && <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">Out of Stock</span>}
-              </div>
-              <div className="p-4 flex-col flex-1">
-                <p className="text-sm text-gray-500">{product.category}</p>
-                <h3 className="font-bold text-lg mb-2">{product.name}</h3>
-                <p className="text-gray-600 text-sm mb-2 flex-1">{product.description}</p>
-                <p className="text-orange-500 font-bold text-xl mb-4">${product.price.toFixed(2)}</p>
-               <button
-  type="button"
-  onClick={(e) => {
-    e.preventDefault(); // stop parent link
-    e.stopPropagation(); // stop card click
-    addToQuote(product)
-  }}
-  disabled={!product.stock}
-  className="
-    w-full bg-orange-500 hover:bg-orange-600 
-    disabled:bg-gray-400 disabled:cursor-not-allowed 
-    text-white py-3 px-4 rounded-lg font-bold text-base
-    touch-manipulation select-none
-    relative z-[50] min-h-[48px] cursor-pointer
-  "
-  style={{ pointerEvents: 'auto' }}
->
-  {product.stock? 'Add to Quote' : 'Out of Stock'}
-</button>
-              </div>
-            </div>
-          ))}
+         {currentProducts.map((product: Product) => (
+  <div 
+    key={product.id} 
+    className="bg-white border rounded-lg shadow-md flex-col"
+  >
+    {/* Image */}
+    <div className="relative w-full h-48 bg-gray-100 pointer-events-none">
+      <Image 
+        src={product.image} 
+        alt={product.name}
+        fill
+        className="object-cover"
+        sizes="(max-width: 768px) 100vw, 25vw"
+      />
+      {product.stock === false && (
+        <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
+          Out of Stock
+        </span>
+      )}
+    </div>
+
+    {/* Content */}
+    <div className="p-4 flex flex-col flex-1 relative z-10">
+      <p className="text-sm text-gray-500">{product.category}</p>
+      <h3 className="font-bold text-lg mb-2">{product.name}</h3>
+      <p className="text-gray-600 text-sm mb-2 flex-1">{product.description}</p>
+      <p className="text-orange-500 font-bold text-xl mb-4">${product.price}</p>
+
+      {/* THE BUTTON - THIS IS THE FIX */}
+      <button
+        type="button"
+        onClick={() => addToQuote(product)}
+        disabled={!product.stock}
+        className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-bold text-base touch-manipulation relative z-20 min-h-[48px]"
+      >
+        {product.stock? 'Add to Quote' : 'Out of Stock'}
+      </button>
+    </div>
+  </div>
+))}
         </div>
 
         {/* Show message if no products */}
