@@ -4,26 +4,22 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function GalleryPage() {
-  const [galleryTab, setGalleryTab] = useState("shops");
+ type GalleryTab = "shops" | "projects";
+const [galleryTab, setGalleryTab] = useState<GalleryTab>("shops");
 
-  const galleryImages = {
-    shops: [
-      { src: "/gallery/shops/shop1.jpg", alt: "Kazmat Marondera Head Office" },
-      { src: "/gallery/shops/shop2.jpg", alt: "Kazmat Macheke Branch" },
-      { src: "/gallery/shops/shop3.jpg", alt: "Kazmat Murewa Branch" },
-      { src: "/gallery/shops/shop4.jpg", alt: "Kazmat Mutoko Branch" },
-      { src: "/gallery/shops/shop5.jpg", alt: "Building Materials Display" },
-      { src: "/gallery/shops/shop6.jpg", alt: "Hardware Section" },
-    ],
-    projects: [
-      { src: "/gallery/projects/project1.jpg", alt: "Residential House - Marondera" },
-      { src: "/gallery/projects/project2.jpg", alt: "Commercial Building - Murewa" },
-      { src: "/gallery/projects/project3.jpg", alt: "Roofing Project - Mutoko" },
-      { src: "/gallery/projects/project4.jpg", alt: "Shop Fitting - Macheke" },
-      { src: "/gallery/projects/project5.jpg", alt: "Borehole & Plumbing" },
-      { src: "/gallery/projects/project6.jpg", alt: "Full House Construction" },
-    ]
-  };
+const galleryImages: Record<GalleryTab, {src: string, alt: string}[]> = {
+  shops: [
+    { src: "/gallery/shops/shop1.jpg", alt: "Kazmat Marondera Head Office" },
+    { src: "/gallery/shops/shop2.jpg", alt: "Kazmat Macheke Branch" },
+    { src: "/gallery/shops/shop3.jpg", alt: "Kazmat Murewa Branch" },
+    { src: "/gallery/shops/shop4.jpg", alt: "Kazmat Mutoko Branch" },
+  ],
+  projects: [
+    { src: "/gallery/projects/project1.jpg", alt: "Residential House - Marondera" },
+    { src: "/gallery/projects/project2.jpg", alt: "Commercial Building - Murewa" },
+    { src: "/gallery/projects/project3.jpg", alt: "Roofing Project - Mutoko" },
+  ]
+};
 
   return (
     <main className="min-h-screen bg-gray-50">
