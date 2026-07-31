@@ -115,18 +115,23 @@ export default function FeaturedProducts() {
 
      
         {/* UPDATE YOUR BUTTON TO THIS EXACT CODE */}
-        <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            addToQuote(product)
-          }}
-          disabled={!product.stock}
-          className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-bold text-base touch-manipulation select-none relative z-[999] min-h-[48px] cursor-pointer"
-        >
-          {product.stock? 'Add to Quote' : 'Out of Stock'}
-        </button>
+       <button
+  type="button"
+  onClick={(e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToQuote(product)
+  }}
+  disabled={!product.stock}
+  className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-bold text-base relative z-[999] min-h-[48px]"
+  style={{ 
+    cursor: 'pointer',
+    WebkitTapHighlightColor: 'transparent',
+    touchAction: 'manipulation'
+  }}
+>
+  {product.stock? 'Add to Quote' : 'Out of Stock'}
+</button>
     </div>
   </div>
 ))}
