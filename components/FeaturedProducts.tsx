@@ -84,7 +84,7 @@ export default function FeaturedProducts() {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10 pointer-events-auto pb-24">
          {currentProducts.map((product: Product) => (
   <div 
     key={product.id} 
@@ -113,15 +113,20 @@ export default function FeaturedProducts() {
       <p className="text-gray-600 text-sm mb-2 flex-1">{product.description}</p>
       <p className="text-orange-500 font-bold text-xl mb-4">${product.price}</p>
 
-      {/* THE BUTTON - THIS IS THE FIX */}
-      <button
-        type="button"
-        onClick={() => addToQuote(product)}
-        disabled={!product.stock}
-        className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-bold text-base touch-manipulation relative z-20 min-h-[48px]"
-      >
-        {product.stock? 'Add to Quote' : 'Out of Stock'}
-      </button>
+     
+        {/* UPDATE YOUR BUTTON TO THIS EXACT CODE */}
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            addToQuote(product)
+          }}
+          disabled={!product.stock}
+          className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-bold text-base touch-manipulation select-none relative z-[999] min-h-[48px] cursor-pointer"
+        >
+          {product.stock? 'Add to Quote' : 'Out of Stock'}
+        </button>
     </div>
   </div>
 ))}
