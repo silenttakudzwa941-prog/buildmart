@@ -42,6 +42,36 @@ const benefits = [
      
   <Navbar />
       <Hero />
+      {/* PROMO BANNERS SECTION */}
+<section className="py-8 px-4 bg-gray-50">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-4">
+
+    {/* PROMO 1: BULK BRICKS */}
+    <Link href="/order-bricks" className="bg-gradient-to-br from-orange-500 to-red-600 text-white rounded-xl p-6 shadow-lg hover:shadow-xl transition transform hover:scale-105">
+      <div className="flex items-start gap-4">
+        <span className="text-4xl">🎁</span>
+        <div>
+          <h3 className="font-bold text-xl mb-1">BULK BUYER PROMO</h3>
+          <p className="text-sm mb-3">Buy <span className="font-bold">30,000 Common Bricks</span> Get <span className="font-bold text-yellow-300">500 FREE</span></p>
+          <span className="bg-white text-red-600 text-xs font-bold px-3 py-1 rounded-full">Limited Time</span>
+        </div>
+      </div>
+    </Link>
+
+    {/* PROMO 2: FREE DELIVERY */}
+    <Link href="/order-delivery" className="bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-xl p-6 shadow-lg hover:shadow-xl transition transform hover:scale-105">
+      <div className="flex items-start gap-4">
+        <span className="text-4xl">🚚</span>
+        <div>
+          <h3 className="font-bold text-xl mb-1">FREE LOCAL DELIVERY</h3>
+          <p className="text-sm mb-3">Spend <span className="font-bold">$250+</span> and Get <span className="font-bold text-yellow-300">Free Delivery</span> within 10km</p>
+          <span className="bg-white text-green-600 text-xs font-bold px-3 py-1 rounded-full">Marondera & Surrounds</span>
+        </div>
+      </div>
+    </Link>
+
+  </div>
+</section>
 <Categories />
 <FeaturedProducts />
 <WhyChooseUs />

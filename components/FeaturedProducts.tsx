@@ -60,6 +60,7 @@ export default function FeaturedProducts() {
   return (
     <section id="shop" className="container mx-auto px-4 py-16 pb-24">
       <div className="container mx-auto px-4">
+        
         <h2 className="text-3xl font-bold text-center mb-8">Featured Products</h2>
         
         {/* Search and Filter Bar */}

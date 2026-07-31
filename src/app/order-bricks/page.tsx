@@ -59,6 +59,26 @@ Please get back to me with a quote. Thank you!`
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-4">Request Quote</h1>
+      {/* PROMO BANNER */}
+{formData.product === 'bricks' && (
+  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg p-4 mb-6 shadow-lg animate-pulse">
+    <div className="flex items-center gap-3">
+      <span className="text-3xl">🎁</span>
+      <div>
+        <h3 className="font-bold text-lg">BULK BUYER PROMO!</h3>
+        <p className="text-sm">
+          Buy <span className="font-bold">30,000 Common Bricks</span> and Get 
+          <span className="font-bold text-yellow-300"> 500 FREE</span>
+        </p>
+        {Number(formData.quantity) >= 30000 && (
+          <p className="text-xs mt-1 bg-white text-red-600 font-bold px-2 py-1 rounded inline-block">
+            ✅ You qualify for 500 FREE bricks!
+          </p>
+        )}
+      </div>
+    </div>
+  </div>
+)}
       <form onSubmit={handleSubmit} className="space-y-4">
         
         {/* PRODUCT DROPDOWN */}
