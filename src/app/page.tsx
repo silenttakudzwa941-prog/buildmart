@@ -16,13 +16,13 @@ export default function Home() {
     name: "Power Tools",
     icon: <Hammer className="w-12 h-12" />,
     desc: "Drills, Grinders, Saws",
-    image: "/drill.jpg" // drill pic
+    image: "/powertools.jpeg" // drill pic
   },
   {
     name: "Paint & Supplies", 
     icon: <PaintBucket className="w-12 h-12" />,
     desc: "Interior, Exterior, Brushes",
-    image: "/paint.jpg" // paint pic
+    image: "/paints.jpeg" // paint pic
   },
   {
     name: "Building Materials",
@@ -74,6 +74,34 @@ const benefits = [
       </div>
     </Link>
 
+  </div>
+</section>
+{/* TRUSTED BRANDS - AUTO SCROLL MARQUEE FIXED */}
+<section className="sticky top-0 z-40 bg-white border-b shadow-sm py-4">
+  <p className="text-center text-xs font-semibold text-gray-500 mb-3">WE STOCK TRUSTED BRANDS</p>
+  
+  <div className="overflow-hidden">
+    <div className="flex animate-marquee whitespace-nowrap">
+      {[...Array(2)].map((_, i) => (
+        <div key={i} className="flex items-center gap-10 md:gap-16 px-5">
+          
+          <img src="/brands/total.png" alt="Total Tools" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/yale.jpg" alt="Yale" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/union.png" alt="Union" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/emtop.png" alt="Emtop" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/pioneer.png" alt="Pioneer" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/gedore.svg" alt="Gedore" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/wembley.png" alt="Wembley" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/splash.png" alt="Splash" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/turo.png" alt="Turo" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/nexus.jpg" alt="Nexus" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/decor.jpg" alt="Decor" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/wako.png" alt="Wako" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+          <img src="/brands/mk.jpg" alt="MK" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
+
+        </div>
+      ))}
+    </div>
   </div>
 </section>
 <Categories />

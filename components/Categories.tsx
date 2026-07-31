@@ -5,25 +5,25 @@ const categories = [
   {
     id: 1,
     name: "Building Materials",
-    image: "/products/building.jpg",
+    image: "/products/building-materials.jpg",
     count: "120+ Products"
   },
   {
     id: 2,
     name: " Power Tools",
-    image: "/products/power.jpg", 
+    image: "/products/powertools.jpeg", 
     count: "80+ Products"
   },
   {
     id: 3,
     name: "Agriculture & Paints",
-    image: "/products/paint.jpg",
+    image: "/products/paints.jpeg",
     count: "60+ Products"
   },
   {
     id: 4,
     name: "Plumbing",
-    image: "/products/plumbing.jpg",
+    image: "/products/plumbing.jpeg",
     count: "90+ Products"
   },
   {
@@ -35,7 +35,7 @@ const categories = [
   {
     id: 6,
     name: "General Hardware & Fasteners",
-    image: "/products/fastener.jpg",
+    image: "/products/general.jpeg",
     count: "200+ Products"
   },
 ];
