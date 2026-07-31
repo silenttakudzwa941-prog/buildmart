@@ -58,13 +58,15 @@ Please get back to me with a quote. Thank you!`
 
   return (
     <>
-      {/* Floating Button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-20 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg z-50"
-      >
-        <MessageCircle size={28} />
-      </button>
+   {/* Floating WhatsApp Button */}
+<div className="fixed bottom-20 right-6 z-40 pointer-events-none">
+  <button
+    onClick={() => setIsOpen(true)}
+    className="pointer-events-auto bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg"
+  >
+    <MessageCircle size={28} />
+  </button>
+</div>
 
       {/* Popup Form */}
       {isOpen && (
