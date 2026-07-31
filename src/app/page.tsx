@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaMapPin, FaPhone, FaTwitter } from 'react-icons/fa'
 import { Drill, Hammer, PaintBucket, Box, Truck, ShieldCheck, Users, Banknote, MessageCircle, MapPin } from 'lucide-react'
@@ -9,7 +10,12 @@ import WhyChooseUs from "../../components/WhyChooseUs";
 import Footer from "../../components/Footer";
 import VisitUs from "../../components/VisitUs";
 import Link from 'next/link';
+import { useState } from "react";
+
+// dynamic hero image based on time of day
 export default function Home() {
+  const [selectedBranch, setSelectedBranch] = useState("marondera");
+
   const whatsappNumber = "263782637892"; // replace with Buidmart WhatsApp
  const products = [
   {
@@ -30,7 +36,38 @@ export default function Home() {
     desc: "Cement, Bricks, Roofing",
     image: "/bricks.jpg" // bricks pic
   }
+ ]
+   const branches = [
+  {
+      id: "marondera",
+      name: "Marondera (Head Office)",
+      address: "Marondera, Zimbabwe",
+      phones: ["+263 712 124 211", "+263 786 507 755", "Sales: 065 232 4453", "Admin: 065 232 4318"],
+      img: "/hero/marondera.jpg"
+    },
+    {
+      id: "macheke", 
+      name: "Macheke",
+      address: "Macheke, Zimbabwe",
+      phones: ["0786 017 309", "Tel: 065 209 0533"],
+      img: "/hero/macheke.jpg"
+    },
+    {
+      id: "murewa",
+      name: "Murewa",
+      address: "Murewa, Zimbabwe", 
+      phones: ["+263 778 444 778", "065 212 3886"],
+      img: "/hero/murewa.jpg"
+    },
+    {
+      id: "mutoko",
+      name: "Mutoko",
+      address: "Mutoko, Zimbabwe",
+      phones: ["+263 719 292 621", "+263 652 132 645"],
+      img: "/hero/mutoko.jpg"
+    },
 ]
+const currentBranch = branches.find(b => b.id === selectedBranch) || branches[0];
 const benefits = [
   { icon: Truck, title: "Fast Delivery", desc: "Delivered to Marondera, Harare & Macheke" },
   { icon: ShieldCheck, title: "Genuine Brands", desc: "Bosch, Makita, Dulux & more" },
@@ -41,7 +78,54 @@ const benefits = [
     <main className="min-h-screen bg-white text-gray-900">
      
   <Navbar />
-      <Hero />
+      {/* HERO WITH DYNAMIC BACKGROUND */}
+      <section 
+        className="relative h-[500px] md:h-[600px] bg-cover bg-center transition-all duration-700"
+        style={{ backgroundImage: `url(${currentBranch.img})` }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        <div className="relative z-10 flex flex-col justify-center items-center h-full text-center text-white px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-3">KAZMAT HARDWARE</h1>
+          <p className="text-lg md:text-2xl mb-4">Good tools for good work!!</p>
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 mb-6">
+            <p className="text-sm">Now Shopping from:</p>
+            <p className="text-xl md:text-2xl font-bold text-yellow-400">{currentBranch.name}</p>
+          </div>
+          <Link href="#shop" className="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg font-bold text-lg">
+            SHOP NOW
+          </Link>
+        </div>
+      </section>
+
+      {/* BRANCHES SELECTOR */}
+      <section className="py-10 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-center text-2xl md:text-3xl font-bold mb-2">Our Branches</h2>
+          <p className="text-center text-gray-600 mb-8">Select your nearest branch</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {branches.map((branch) => (
+              <button
+                key={branch.id}
+                onClick={() => setSelectedBranch(branch.id)}
+                className={`border-2 rounded-xl p-5 text-left transition-all duration-300 ${
+                  selectedBranch === branch.id 
+                ? 'border-orange-500 bg-orange-50 shadow-lg scale-105' 
+                  : 'border-gray-200 bg-white hover:border-orange-300 hover:shadow'
+                }`}
+              >
+                <h3 className="font-bold text-lg mb-2 text-gray-800">{branch.name}</h3>
+                <p className="text-sm text-gray-600 mb-3">{branch.address}</p>
+                <div className="space-y-1">
+                  {branch.phones.map((phone, i) => (
+                    <p key={i} className="text-sm font-semibold text-orange-600">{phone}</p>
+                  ))}
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
   {/* PROMO BANNERS SECTION - MOBILE FIXED */}
 <section className="py-8 px-4 bg-gray-50 animate-fade-in">
   <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-4">
