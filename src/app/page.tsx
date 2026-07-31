@@ -103,15 +103,18 @@ const benefits = [
         <div className="max-w-6xl mx-auto">
           <h2 className="text-center text-2xl md:text-3xl font-bold mb-2">Our Branches</h2>
           <p className="text-center text-gray-600 mb-8">Select your nearest branch</p>
+          <form>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {branches.map((branch) => (
-             <button
+      <button
   key={branch.id}
+  type="button"
   onClick={() => setSelectedBranch(branch.id)}
-  className={`relative z-10 border-2 rounded-xl p-5 text-left transition-all duration-300 cursor-pointer active:scale-95 ${
+  onTouchStart={() => setSelectedBranch(branch.id)}
+  className={`relative z-10 border-2 rounded-xl p-5 text-left transition-all duration-300 cursor-pointer select-none active:scale-95 ${
     selectedBranch === branch.id 
   ? 'border-orange-500 bg-orange-50 shadow-lg scale-105' 
-    : 'border-gray-200 bg-white hover:border-orange-300 hover:shadow'
+    : 'border-gray-200 bg-white'
   }`}
 >
                 <h3 className="font-bold text-lg mb-2 text-gray-800">{branch.name}</h3>
@@ -124,6 +127,7 @@ const benefits = [
               </button>
             ))}
           </div>
+          </form>
         </div>
       </section>
   {/* PROMO BANNERS SECTION - MOBILE FIXED */}
