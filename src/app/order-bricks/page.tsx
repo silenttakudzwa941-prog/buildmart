@@ -62,31 +62,45 @@ Please get back to me with a quote. Thank you!`
       <form onSubmit={handleSubmit} className="space-y-4">
         
         {/* PRODUCT DROPDOWN */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Product *</label>
-          <select
-            name="product"
-            value={formData.product}
-            onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md p-2"
-            required
-          >
-            {productsConfig.map(p => (
-              <option key={p.id} value={p.id}>{p.name}</option>
-            ))}
-          </select>
-        </div>
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-1">Product *</label>
+  <select
+    name="product"
+    value={formData.product}
+    onChange={handleChange}
+    className="w-full border border-gray-300 rounded-md p-2"
+    required
+  >
+    {productsConfig.map(p => (
+      <option key={p.id} value={p.id}>{p.name}</option>
+    ))}
+  </select>
+</div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Quantity in {selectedProduct.unit} *</label>
-          <input name="quantity" type="number" value={formData.quantity} onChange={handleChange} required className="w-full border rounded p-2"/>
-        </div>
+{/* QUANTITY - NOW DYNAMIC */}
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-1">
+    Quantity in {selectedProduct.unit} *
+  </label>
+  <input 
+    name="quantity" 
+    type="number" 
+    placeholder={`e.g. 3 ${selectedProduct.unit}`}
+    value={formData.quantity} 
+    onChange={handleChange} 
+    required 
+    className="w-full border rounded p-2"
+  />
+</div>
 
-        {formData.quantity && (
-          <div className="bg-orange-50 border border-orange-200 p-3 rounded">
-            <p className="text-sm">Est Transport: ${calculateTransport()} for {selectedProduct.transport.radiusKm}km radius</p>
-          </div>
-        )}
+{/* TRANSPORT ESTIMATE */}
+{formData.quantity !== '' && (
+  <div className="bg-orange-50 border border-orange-200 p-3 rounded mt-2">
+    <p className="text-sm font-medium text-orange-800">
+      Est Transport: ${calculateTransport()} for {selectedProduct.transport.radiusKm}km radius
+    </p>
+  </div>
+)}
 
         <input name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required className="w-full border rounded p-2"/>
         <input name="phone" placeholder="Your Phone" value={formData.phone} onChange={handleChange} required className="w-full border rounded p-2"/>
