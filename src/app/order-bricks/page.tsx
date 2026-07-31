@@ -1,136 +1,104 @@
 "use client"
-import { useState } from "react"
-import Link from "next/link"
-import { Gift } from "lucide-react" // for promo icon
-import Footer from "../../../components/Footer"
+import { useState } from "react";
+import Link from "next/link";
+import Footer from "../../../components/Footer";
 
-export default function OrderBricksPage() {
+// 1. PUT CONFIG INSIDE SAME FILE FOR NOW
+const productsConfig = [
+  { id: 'bricks', name: 'Common Bricks', unit: 'bricks', transport: { base: 6, per: 3000, radiusKm: 10 } },
+  { id: 'pavers', name: 'Pavers', unit: 'sqm', transport: { base: 8, per: 20, radiusKm: 10 } },
+  { id: 'window-sills', name: 'Window Sills', unit: 'pieces', transport: { base: 10, per: 50, radiusKm: 10 } },
+  { id: 'air-vents', name: 'Air Vents', unit: 'pieces', transport: { base: 10, per: 50, radiusKm: 10 } },
+  { id: 'quarry-stone', name: 'Quarry Stones', unit: 'ton', transport: { base: 25, per: 1, radiusKm: 10 } },
+  { id: 'river-sand', name: 'River Sand', unit: 'ton', transport: { base: 25, per: 1, radiusKm: 10 } },
+  { id: 'pit-sand', name: 'Pit Sand', unit: 'ton', transport: { base: 20, per: 1, radiusKm: 10 } },
+]
+
+export default function ConcreteProductQuotePage() {
+  // 2. ALL HOOKS MUST BE INSIDE HERE
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     address: '',
+    product: 'bricks',
     quantity: ''
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({...formData, [e.target.name]: e.target.value })
   }
 
-  const quantityNum = Number(formData.quantity) || 0
-  const qualifiesForPromo = quantityNum > 30000
-  const totalBricks = qualifiesForPromo ? quantityNum + 500 : quantityNum
+  const selectedProduct = productsConfig.find(p => p.id === formData.product)!
+  
+  const calculateTransport = () => {
+    const qty = Number(formData.quantity) || 0
+    const trips = Math.ceil(qty / selectedProduct.transport.per)
+    return trips * selectedProduct.transport.base
+  }
 
-  const handleWhatsAppSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const transportCost = calculateTransport()
     
-    const promoText = qualifiesForPromo ? `\n*PROMO APPLIED:* Free 500 bricks!` : ''
-    
-    const message = `Hello KAZMAT Hardware! I would like to order bricks.
-    
-*Full Name:* ${formData.name}
-*Phone:* ${formData.phone}
-*Delivery Address:* ${formData.address}
-*Quantity Ordered:* ${formData.quantity} bricks
-*Total After Promo:* ${totalBricks} bricks${promoText}
+    const message = `*NEW ORDER REQUEST - Kazmat Hardware*
+
+Name: ${formData.name}
+Phone: ${formData.phone}
+Product: ${selectedProduct.name}
+Quantity: ${formData.quantity} ${selectedProduct.unit}
+Delivery Address: ${formData.address}
+
+Est. Transport: $${transportCost} for delivery within ${selectedProduct.transport.radiusKm}km
 
 Please get back to me with a quote. Thank you!`
-    
-    const encodedMessage = encodeURIComponent(message)
-    const whatsappNumber = "263786507755" // your number
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
-    
-    window.open(whatsappUrl, '_blank')
-  }
+
+    const url = `https://wa.me/263786507755?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-center mb-2">Order Bricks</h1>
-      <p className="text-gray-600 text-center mb-6">Fill in your details and we’ll send your order to WhatsApp</p>
-      
-      {/* SPECIAL PROMO BANNER */}
-      <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6 rounded-md flex items-start gap-3">
-        <Gift size={24} className="text-orange-500 mt-1 flex-shrink-0" />
-        <div>
-          <p className="font-bold text-orange-800">Special Promotion!</p>
-          <p className="text-orange-700 text-sm">Order more than <span className="font-bold">30,000 bricks</span> and get <span className="font-bold">500 bricks FREE!</span></p>
-        </div>
-      </div>
-      
-      <form onSubmit={handleWhatsAppSubmit} className="bg-white shadow-md rounded-lg p-6 space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-          <input 
-            type="text" 
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-brand focus:border-brand"
-            placeholder="John Doe"
-          />
-        </div>
+    <div className="max-w-2xl mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-4">Request Quote</h1>
+      <form onSubmit={handleSubmit} className="space-y-4">
         
+        {/* PRODUCT DROPDOWN */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-          <input 
-            type="tel" 
-            name="phone"
-            value={formData.phone}
+          <label className="block text-sm font-medium text-gray-700 mb-1">Product *</label>
+          <select
+            name="product"
+            value={formData.product}
             onChange={handleChange}
+            className="w-full border border-gray-300 rounded-md p-2"
             required
-            className="w-full border-gray-300 rounded-md px-3 py-2 focus:ring-brand focus:border-brand"
-            placeholder="+263 7X XXXX"
-          />
-        </div>
-        
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Delivery Address</label>
-          <textarea 
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            required
-            rows={3}
-            className="w-full border-gray-300 rounded-md px-3 py-2 focus:ring-brand focus:border-brand"
-            placeholder="Stand 123, Marondera"
-          />
-        </div>
-        
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Quantity of Bricks</label>
-          <input 
-            type="number" 
-            name="quantity"
-            value={formData.quantity}
-            onChange={handleChange}
-            required
-            min="100"
-            className="w-full border-gray-300 rounded-md px-3 py-2 focus:ring-brand focus:border-brand"
-            placeholder="e.g. 30000"
-          />
-          {qualifiesForPromo && (
-            <p className="text-green-600 text-sm font-semibold mt-2">
-              🎉 You qualify for 500 FREE bricks! Total: {totalBricks.toLocaleString()} bricks
-            </p>
-          )}
+          >
+            {productsConfig.map(p => (
+              <option key={p.id} value={p.id}>{p.name}</option>
+            ))}
+          </select>
         </div>
 
-        <button 
-          type="submit"
-          className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-md transition"
-        >
-          Send Order via WhatsApp
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Quantity in {selectedProduct.unit} *</label>
+          <input name="quantity" type="number" value={formData.quantity} onChange={handleChange} required className="w-full border rounded p-2"/>
+        </div>
+
+        {formData.quantity && (
+          <div className="bg-orange-50 border border-orange-200 p-3 rounded">
+            <p className="text-sm">Est Transport: ${calculateTransport()} for {selectedProduct.transport.radiusKm}km radius</p>
+          </div>
+        )}
+
+        <input name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required className="w-full border rounded p-2"/>
+        <input name="phone" placeholder="Your Phone" value={formData.phone} onChange={handleChange} required className="w-full border rounded p-2"/>
+        <textarea name="address" placeholder="Delivery Address" value={formData.address} onChange={handleChange} required className="w-full border rounded p-2"/>
+
+        <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded">
+          Send via WhatsApp
         </button>
       </form>
 
-      <div className="text-center mt-6">
-        <Link href="/" className="text-brand hover:underline font-medium">
-          ← Back to Home
-        </Link>
-    
-      </div>
-    <Footer/>
+      <Link href="/" className="text-brand underline mt-4 block text-center">Back to Home</Link>
+    <Footer />
     </div>
-    
   )
 }
