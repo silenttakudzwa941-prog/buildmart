@@ -42,30 +42,34 @@ const benefits = [
      
   <Navbar />
       <Hero />
-      {/* PROMO BANNERS SECTION */}
-<section className="py-8 px-4 bg-gray-50">
+  {/* PROMO BANNERS SECTION - MOBILE FIXED */}
+<section className="py-8 px-4 bg-gray-50 animate-fade-in">
   <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-4">
 
     {/* PROMO 1: BULK BRICKS */}
-    <Link href="/order-bricks" className="bg-gradient-to-br from-orange-500 to-red-600 text-white rounded-xl p-6 shadow-lg hover:shadow-xl transition transform hover:scale-105">
+    <Link href="/order-bricks" className="bg-orange-500 active:bg-orange-600 text-white rounded-xl p-6 shadow-lg transition transform active:scale-95">
       <div className="flex items-start gap-4">
         <span className="text-4xl">🎁</span>
-        <div>
-          <h3 className="font-bold text-xl mb-1">BULK BUYER PROMO</h3>
-          <p className="text-sm mb-3">Buy <span className="font-bold">30,000 Common Bricks</span> Get <span className="font-bold text-yellow-300">500 FREE</span></p>
-          <span className="bg-white text-red-600 text-xs font-bold px-3 py-1 rounded-full">Limited Time</span>
+        <div className="flex-1">
+          <h3 className="font-bold text-xl mb-1 text-white">BULK BUYER PROMO</h3>
+          <p className="text-sm mb-3 text-white">
+            Buy <span className="font-bold">30,000 Common Bricks</span> Get <span className="font-bold text-yellow-300">500 FREE</span>
+          </p>
+          <span className="bg-white text-red-600 text-xs font-bold px-3 py-1 rounded-full inline-block">Limited Time</span>
         </div>
       </div>
     </Link>
 
     {/* PROMO 2: FREE DELIVERY */}
-    <Link href="/order-delivery" className="bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-xl p-6 shadow-lg hover:shadow-xl transition transform hover:scale-105">
+    <Link href="/order-delivery" className="bg-green-500 active:bg-green-600 text-white rounded-xl p-6 shadow-lg transition transform active:scale-95">
       <div className="flex items-start gap-4">
         <span className="text-4xl">🚚</span>
-        <div>
-          <h3 className="font-bold text-xl mb-1">FREE LOCAL DELIVERY</h3>
-          <p className="text-sm mb-3">Spend <span className="font-bold">$250+</span> and Get <span className="font-bold text-yellow-300">Free Delivery</span> within 10km</p>
-          <span className="bg-white text-green-600 text-xs font-bold px-3 py-1 rounded-full">Marondera & Surrounds</span>
+        <div className="flex-1">
+          <h3 className="font-bold text-xl mb-1 text-white">FREE LOCAL DELIVERY</h3>
+          <p className="text-sm mb-3 text-white">
+            Spend <span className="font-bold">$250+</span> and Get <span className="font-bold text-yellow-300">Free Delivery</span> within 10km
+          </p>
+          <span className="bg-white text-green-600 text-xs font-bold px-3 py-1 rounded-full inline-block">Marondera & Surrounds</span>
         </div>
       </div>
     </Link>
