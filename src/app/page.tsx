@@ -106,14 +106,14 @@ const benefits = [
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {branches.map((branch) => (
               <button
-                key={branch.id}
-                onClick={() => setSelectedBranch(branch.id)}
-                className={`border-2 rounded-xl p-5 text-left transition-all duration-300 ${
-                  selectedBranch === branch.id 
-                ? 'border-orange-500 bg-orange-50 shadow-lg scale-105' 
-                  : 'border-gray-200 bg-white hover:border-orange-300 hover:shadow'
-                }`}
-              >
+  key={branch.id}
+  onClick={() => setSelectedBranch(branch.id)}
+  className={`border-2 rounded-xl p-5 text-left transition-all duration-300 cursor-pointer active:scale-95 ${
+    selectedBranch === branch.id 
+  ? 'border-orange-500 bg-orange-50 shadow-lg scale-105' 
+    : 'border-gray-200 bg-white hover:border-orange-300 hover:shadow'
+  }`}
+>
                 <h3 className="font-bold text-lg mb-2 text-gray-800">{branch.name}</h3>
                 <p className="text-sm text-gray-600 mb-3">{branch.address}</p>
                 <div className="space-y-1">
