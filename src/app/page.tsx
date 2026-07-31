@@ -76,15 +76,14 @@ const benefits = [
 
   </div>
 </section>
-{/* TRUSTED BRANDS - AUTO SCROLL MARQUEE FIXED */}
-<section className="sticky top-0 z-40 bg-white border-b shadow-sm py-4">
+{/* TRUSTED BRANDS - AUTO SCROLL MARQUEE FIXED V2 */}
+<section className="sticky top-[64px] z-40 bg-white border-b shadow-sm py-4"> {/* top-[64px] so it sticks under your navbar */}
   <p className="text-center text-xs font-semibold text-gray-500 mb-3">WE STOCK TRUSTED BRANDS</p>
   
-  <div className="overflow-hidden">
-    <div className="flex animate-marquee whitespace-nowrap">
+  <div className="overflow-hidden w-full">
+    <div className="flex animate-marquee min-w-[200%]"> {/* min-w-[200%] is the key */}
       {[...Array(2)].map((_, i) => (
-        <div key={i} className="flex items-center gap-10 md:gap-16 px-5">
-          
+        <div key={i} className="flex items-center justify-around gap-10 md:gap-16 px-8 flex-shrink-0 w-1/2"> {/* w-1/2 is the key */}
           <img src="/brands/total.png" alt="Total Tools" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
           <img src="/brands/yale.jpg" alt="Yale" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
           <img src="/brands/union.png" alt="Union" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
@@ -98,7 +97,6 @@ const benefits = [
           <img src="/brands/decor.jpg" alt="Decor" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
           <img src="/brands/wako.png" alt="Wako" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
           <img src="/brands/mk.jpg" alt="MK" className="h-8 md:h-10 w-auto object-contain flex-shrink-0" />
-
         </div>
       ))}
     </div>
