@@ -59,7 +59,7 @@ export default async function DetailPage({ params }: Props) {
             <p className="text-gray-600 mt-4">{product.description}</p>
 
             <Link 
-              href={`https://wa.me/263782637892?text=Hi%20KAZMAT,%20I%20want%20to%20order%20${encodeURIComponent(product.name)}%20${product.id}`}
+              href={`https://wa.me/263786507755?text=Hi%20KAZMAT,%20I%20want%20to%20order%20${encodeURIComponent(product.name)}%20${product.id}`}
               target="_blank"
               className="mt-6 inline-block bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-3 rounded-lg"
             >

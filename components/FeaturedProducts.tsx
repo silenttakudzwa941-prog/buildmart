@@ -88,50 +88,56 @@ export default function FeaturedProducts() {
          {currentProducts.map((product: Product) => (
   <div 
     key={product.id} 
-    className="bg-white border rounded-lg shadow-md flex-col"
+    className="bg-white border rounded-lg shadow-md flex-col relative group"
   >
-    {/* Image */}
-    <div className="relative w-full h-48 bg-gray-100 pointer-events-none">
-      <Image 
-        src={product.image} 
-        alt={product.name}
-        fill
-        className="object-cover"
-        sizes="(max-width: 768px) 100vw, 25vw"
-      />
-      {product.stock === false && (
-        <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
-          Out of Stock
-        </span>
-      )}
-    </div>
+    {/* Image - CLICKABLE */}
+    <Link href={`/product/${product.id}`} className="block">
+      <div className="relative w-full h-48 bg-gray-100">
+        <Image 
+          src={product.image} 
+          alt={product.name}
+          fill
+          className="object-cover rounded-t-lg"
+          sizes="(max-width: 768px) 100vw, 25vw"
+        />
+        {product.stock === false && (
+          <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded z-10">
+            Out of Stock
+          </span>
+        )}
+      </div>
+    </Link>
 
     {/* Content */}
-    <div className="p-4 flex flex-col flex-1 relative z-10">
-      <p className="text-sm text-gray-500">{product.category}</p>
-      <h3 className="font-bold text-lg mb-2">{product.name}</h3>
+    <div className="p-4 flex-col flex-1">
+      {/* Name + Category - CLICKABLE */}
+      <Link href={`/product/${product.id}`} className="block">
+        <p className="text-sm text-gray-500 hover:text-orange-500">{product.category}</p>
+        <h3 className="font-bold text-lg mb-2 group-hover:text-orange-500">{product.name}</h3>
+      </Link>
+      
       <p className="text-gray-600 text-sm mb-2 flex-1">{product.description}</p>
       <p className="text-orange-500 font-bold text-xl mb-4">${product.price}</p>
 
-     
-        {/* UPDATE YOUR BUTTON TO THIS EXACT CODE */}
-       <button
-  type="button"
-  onClick={(e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    addToQuote(product)
-  }}
-  disabled={!product.stock}
-  className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-bold text-base relative z-[999] min-h-[48px]"
-  style={{ 
-    cursor: 'pointer',
-    WebkitTapHighlightColor: 'transparent',
-    touchAction: 'manipulation'
-  }}
->
-  {product.stock? 'Add to Quote' : 'Out of Stock'}
-</button>
+      {/* BUTTON - NOT CLICKABLE FOR LINK */}
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          addToQuote(product)
+        }}
+        disabled={!product.stock}
+        className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-bold text-base relative z-10 min-h-[48px]"
+        style={{ 
+          cursor: 'pointer',
+          WebkitTapHighlightColor: 'transparent',
+          touchAction: 'manipulation'
+        }}
+      >
+        {product.stock? 'Add to Quote' : 'Out of Stock'}
+      </button>
+
     </div>
   </div>
 ))}
