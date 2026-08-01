@@ -50,21 +50,21 @@ export default function Home() {
       name: "Macheke",
       address: "Macheke, Zimbabwe",
       phones: ["0786 017 309", "Tel: 065 209 0533"],
-      img: "/hero/macheke.jpg"
+      img: "/hero/macheke.jpeg"
     },
     {
       id: "murewa",
       name: "Murewa",
       address: "Murewa, Zimbabwe", 
       phones: ["+263 778 444 778", "065 212 3886"],
-      img: "/hero/murewa.jpg"
+      img: "/hero/murewa.jpeg"
     },
     {
       id: "mutoko",
       name: "Mutoko",
       address: "Mutoko, Zimbabwe",
       phones: ["+263 719 292 621", "+263 652 132 645"],
-      img: "/hero/mutoko.jpg"
+      img: "/hero/mutoko.jpeg"
     },
 ]
 const currentBranch = branches.find(b => b.id === selectedBranch) || branches[0];

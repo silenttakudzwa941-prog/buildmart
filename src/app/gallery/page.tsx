@@ -10,9 +10,9 @@ const [galleryTab, setGalleryTab] = useState<GalleryTab>("shops");
 const galleryImages: Record<GalleryTab, {src: string, alt: string}[]> = {
   shops: [
     { src: "/gallery/shops/shop1.jpg", alt: "Kazmat Marondera Head Office" },
-    { src: "/gallery/shops/shop2.jpg", alt: "Kazmat Macheke Branch" },
-    { src: "/gallery/shops/shop3.jpg", alt: "Kazmat Murewa Branch" },
-    { src: "/gallery/shops/shop4.jpg", alt: "Kazmat Mutoko Branch" },
+    { src: "/gallery/shops/shop2.jpeg", alt: "Kazmat Macheke Branch" },
+    { src: "/gallery/shops/shop3.jpeg", alt: "Kazmat Murewa Branch" },
+    { src: "/gallery/shops/shop4.jpeg", alt: "Kazmat Mutoko Branch" },
   ],
   projects: [
     { src: "/gallery/projects/project1.jpg", alt: "Residential House - Marondera" },
