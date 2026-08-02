@@ -94,13 +94,16 @@ export default function FeaturedProducts() {
     {/* Image - CLICKABLE */}
     <Link href={`/product/${product.id}`} className="block">
       <div className="relative w-full h-48 bg-gray-100">
-        <Image 
-          src={product.image} 
-          alt={product.name}
-          fill
-          className="object-cover rounded-t-lg"
-          sizes="(max-width: 768px) 100vw, 25vw"
-        />
+      <Image
+  src={product.image}
+  alt={product.name}
+  fill
+  className="object-cover rounded-t-lg"
+  sizes="(max-width: 768px) 100vw, 25vw"
+  onError={(e) => {
+    e.currentTarget.src = "/products/no-image.jpg"
+  }}
+/>
         {product.stock === false && (
           <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded z-10">
             Out of Stock
