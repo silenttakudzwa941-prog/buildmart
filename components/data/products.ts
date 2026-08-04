@@ -52,7 +52,7 @@ export const products: Product[] = [
   {"id": "p041", "name": "1.6Ltr Food Warmer 3pcs", "description": "Stainless Steel Food Warmer Set 3pcs", "category": "General Hardware", "price": 9.50, "image": "/products/Food+Warmer.jpg", "stock": true},
   {"id": "p042", "name": "1.6mm Brazing Rods", "description": "Brazing Rods 1.6mm", "category": "Tools", "price": 0.60, "image": "/products/Brazing+Rod.jpg", "stock": true},
 
-  {"id": "p043", "name": "1.8Ltr Rice Cooker 1034", "description": "1.8 Liter Rice Cooker", "category": "General Hardware", "price": 30.50, "image": "https://placehold.co/400x400?text=Rice+Cooker", "stock": true},
+  {"id": "p043", "name": "1.8Ltr Rice Cooker 1034", "description": "1.8 Liter Rice Cooker", "category": "General Hardware", "price": 30.50, "image": "", "stock": true},
   {"id": "p044", "name": "1.8m Droppers", "description": "Treated Timber Droppers 1.8m", "category": "Building Materials", "price": 12.00, "image": "https://placehold.co/400x400?text=Dropper", "stock": true},
   {"id": "p045", "name": "10 Inch Combination Pliers", "description": "10 Inch Combination Pliers", "category": "Tools", "price": 12.00, "image": "https://placehold.co/400x400?text=Pliers", "stock": true},
   {"id": "p046", "name": "10 Gauge Welding Rods Kg", "description": "Welding Rods 10 Gauge per Kg", "category": "Tools", "price": 3.00, "image": "https://placehold.co/400x400?text=Welding+Rod", "stock": true},
