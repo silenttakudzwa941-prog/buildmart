@@ -220,7 +220,7 @@ const benefits = [
             </li>
             <li>
               <Link href="https://www.google.com/maps?q=-17.648740,31.783826" target="_blank" className="flex items-center gap-2 hover:text-orange-500 transition">
-                📍 <span className="font-semibold">Murewa</span>
+                📍 <span className="font-semibold">Murewa Township</span>
               </Link>
             </li>
             <li>
@@ -230,7 +230,7 @@ const benefits = [
             </li>
             <li>
               <Link href="https://www.google.com/maps?q=-20.090151,30.830606" target="_blank" className="flex items-center gap-2 hover:text-orange-500 transition">
-                📍 <span className="font-semibold">Macheke</span>
+                📍 <span className="font-semibold">Macheke Township</span>
               </Link>
             </li>
           </ul>
