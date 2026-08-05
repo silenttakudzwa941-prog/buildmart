@@ -214,22 +214,22 @@ const benefits = [
           <h3 className="text-xl font-bold mb-4 text-orange-500">Our Branches</h3>
           <ul className="space-y-3 text-gray-700">
             <li>
-              <Link href="https://maps.google.com/?q=Marondera+Zimbabwe" target="_blank" className="flex items-center gap-2 hover:text-orange-500 transition">
+              <Link href="https://www.google.com/maps?q=-17.883171,30.984658" target="_blank" className="flex items-center gap-2 hover:text-orange-500 transition">
                 📍 <span className="font-semibold">Marondera</span> - Main Branch
               </Link>
             </li>
             <li>
-              <Link href="https://maps.google.com/?q=Murewa+Zimbabwe" target="_blank" className="flex items-center gap-2 hover:text-orange-500 transition">
+              <Link href="https://www.google.com/maps?q=-17.648740,31.783826" target="_blank" className="flex items-center gap-2 hover:text-orange-500 transition">
                 📍 <span className="font-semibold">Murewa</span>
               </Link>
             </li>
             <li>
-              <Link href="https://maps.google.com/?q=Mutoko+Zimbabwe" target="_blank" className="flex items-center gap-2 hover:text-orange-500 transition">
+              <Link href="https://www.google.com/maps?q=-17.405020,32.228178" target="_blank" className="flex items-center gap-2 hover:text-orange-500 transition">
                 📍 <span className="font-semibold">Mutoko</span>
               </Link>
             </li>
             <li>
-              <Link href="https://maps.google.com/?q=Macheke+Zimbabwe" target="_blank" className="flex items-center gap-2 hover:text-orange-500 transition">
+              <Link href="https://www.google.com/maps?q=-20.090151,30.830606" target="_blank" className="flex items-center gap-2 hover:text-orange-500 transition">
                 📍 <span className="font-semibold">Macheke</span>
               </Link>
             </li>
