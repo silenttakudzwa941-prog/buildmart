@@ -15,7 +15,7 @@ export const products: Product[] = [
   {"id": "p005", "name": "0.75 HP Booster Pump", "description": "0.75 HP Booster Pump With Automatic Control", "category": "Agriculture", "price": 120.00, "image": "/products/0.75-booster-pump.jpg", "stock": true},
   {"id": "p006", "name": "0.75hp Control Box", "description": "Control Box for 0.75hp Pump", "category": "Electricals", "price": 22.00, "image": "/products/control-box.jpg", "stock": true},
   {"id": "p007", "name": "0.9x3.6 Rhino Board", "description": "Gypsum Board 0.9m x 3.6m", "category": "Building Materials", "price": 12.00, "image": "/products/rhino-board.jpg", "stock": true},
-  {"id": "p008", "name": "1 Box Boom Surf", "description": "Boom Washing Powder 40 sachets", "category": "General Hardware", "price": 40.00, "image": "/products/boom-surf.jpg", "stock": true},
+  {"id": "p008", "name": "top plug", "description": "3 pin top plug", "category": "Electricals", "price": 3.00, "image": "/products/top-plug.jpg", "stock": true},
   {"id": "p009", "name": "1 Box Domestos", "description": "Domestos Bleach 70 bottles", "category": "General Hardware", "price": 70.00, "image": "/products/box-domestos.jpg", "stock": true},
   {"id": "p010", "name": "1 Gang 1 Way Switch Koffy", "description": "1 Gang 1 Way Light Switch", "category": "Electricals", "price": 1.00, "image": "/products/1-gang-kofy.jpg", "stock": true},
   {"id": "p011", "name": "1 Gang 1 Way Switch Raylight", "description": "1 Gang 1 Way Switch", "category": "Electricals", "price": 1.50, "image": "/products/boom-switch.jpg", "stock": true},
