@@ -77,7 +77,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-4">Contact Us</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li className="flex items-center gap-2"><Mail mailto="kazmathardware@gmail.com" className="w-4 h-4"/> kazmathardware@gmail.com</li>
+              <li className="flex items-center gap-2"><Mail  className="w-4 h-4"/> kazmathardware@gmail.com</li>
               <li className="flex items-center gap-2"><Phone className="w-4 h-4"/> 065 232 4483</li>
               <li className="flex items-center gap-2"><Clock className="w-4 h-4"/> Mon - Fri: 8AM - 5PM</li>
                <li className="flex items-center gap-2"><Clock className="w-4 h-4"/> Sat: 8AM - 4PM</li>
