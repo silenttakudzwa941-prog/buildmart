@@ -44,31 +44,31 @@ export default function Footer() {
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 47 Elm Street,Bata Complex, Marondera</p>
                 <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 71 212 4211</p>
               <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 78 650 7755</p>
-              <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> sales:0652324483</p>
-              <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> admin:0652324318</p>
+              <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Admin:0652324483</p>
+              <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Admin:0652324318</p>
               </div>
               <div>
                 <p className="font-semibold text-white">Macheke Branch</p>
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> Stand 955, Macheke</p>
                 <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 78 601 7309</p>
-                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Tel:0652080533</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Admin:0652080533</p>
               </div>
               <div>
                 <p className="font-semibold text-white">Murewa Branch</p>
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 262c Mapfumo Complex Next To Murewa Council, Murewa</p>
-                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 77 844 4778</p>
-                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Tel:0652123556</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Sales:+263 77 844 4778</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Admin:0652123556</p>
               </div>
               <div>
                 <p className="font-semibold text-white">Mtoko Branch</p>
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 992 Mtoko Centre Opposite Pick n Pay, Mtoko</p>
-                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 71 926 2621</p>
-                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Tel:0652132645</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Sales:+263 71 926 2621</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Admin:0652132645</p>
               </div>
               <div>
                 <p className="font-semibold text-white">Marondera Precast</p>
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4"/> 133 Chicago Drive Industrial site, Marondera</p>
-                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> +263 71 383 6126</p>
+                <p className="flex items-center gap-2"><Phone className="w-4 h-4"/> Sales:+263 71 383 6126</p>
               </div>
             </div>
           </div>

@@ -42,28 +42,28 @@ export default function Home() {
       id: "marondera",
       name: "Marondera (Head Office)",
       address: "Marondera, Zimbabwe",
-      phones: ["+263 712 124 211", "+263 786 507 755", "Sales: 065 232 4453", "Admin: 065 232 4318"],
+      phones: ["Sales:+263 712 124 211", "Sales:+263 786 507 755", "Admin:065 232 4453", "Admin: 065 232 4318"],
       img: "/hero/marondera.jpg"
     },
     {
       id: "macheke", 
       name: "Macheke",
       address: "Macheke, Zimbabwe",
-      phones: ["0786 017 309", "Tel: 065 209 0533"],
+      phones: ["Sales:+263 786 017 309", "Admin: 065 209 0533"],
       img: "/hero/macheke.jpeg"
     },
     {
       id: "murewa",
       name: "Murewa",
       address: "Murewa, Zimbabwe", 
-      phones: ["+263 778 444 778", "065 212 3886"],
+      phones: ["Sales:+263 778 444 778", "Admin:+263 652 123 456"],
       img: "/hero/murewa.jpeg"
     },
     {
       id: "mutoko",
       name: "Mutoko",
       address: "Mutoko, Zimbabwe",
-      phones: ["+263 719 292 621", "+263 652 132 645"],
+      phones: ["Sales:+263 719 292 621", "Admin:+263 652 132 645"],
       img: "/hero/mutoko.jpeg"
     },
 ]
